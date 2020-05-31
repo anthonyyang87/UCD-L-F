@@ -13,7 +13,7 @@ const FormData = require("form-data");
 let filename = ""; 
 let filename2 = ""; 
 //creating database if not exist
-const lost DB = new sql.Database("Postcard.db"); 
+const lostDB = new sql.Database("LostAndFoundTable.db"); 
 
 let cmd = " SELECT name FROM sqlite_master WHERE type='table' AND name='LostAndFoundTable' "; 
 lostDB.get(cmd, function(err, val){
@@ -48,7 +48,7 @@ function handlePostcard(req, res, next){
   //let url = "g"; 
   let key = req.query.id; 
   let cmd = "SELECT randomString, jsonString FROM PostCardTable WHERE randomString=?";
-  postDB.all(cmd, key, function (err, data){
+  lostDB.all(cmd, key, function (err, data){
     if (err){
       console.log("Database reading error:", err.message); 
     } else {
@@ -78,7 +78,7 @@ app.post('/newItem', function (req, res) {
   
   //put new item into database
   cmd = "INSERT INTO PostcardTable ( randomString, jsonString) VALUES (?,?)"; 
-  postDB.run(cmd, randomString, userData, function(err){
+  lostDB.run(cmd, randomString, userData, function(err){
     if(err) {
       console.log("Database Insert Error!"); 
     } else {
@@ -108,7 +108,7 @@ app.use("/images",express.static('images'));
 // Handle GET request to base URL with no other route specified
 // by sending creator.html, the main page of the app
 app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/public/creator.html');
+  response.sendFile(__dirname + '/public/index.html');
 });
 
 
