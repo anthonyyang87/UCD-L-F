@@ -1,3 +1,4 @@
+
 function next(){
 
 	/*
@@ -57,6 +58,8 @@ function finderNext(){
   sessionStorage.setItem('category', category); 
   sessionStorage.setItem('photoURL', photoURL); 
   
+  window.location.href = "screen04.html";
+  
 }
 
 function finderSubmit(){
@@ -64,12 +67,30 @@ function finderSubmit(){
 	var date = document.getElementById('date').value; 
 	var time = document.getElementById('time').value; 
   
-  //maybe do not need this
-  /*
-  sessionStorage.setItem('location', location); 
-  sessionStorage.setItem('date', date);
-  sessionStorage.setItem('time', time);
-  */
+
+  //grab saved values in previous page
+  var LostOrFound = sessionStorage.getItem('LostOrFound'); 
+  var title = sessionStorage.getItem('title'); 
+  var description = sessionStorage.getItem('description'); 
+  var category = sessionStorage.getItem('category'); 
+  var photoURL = sessionStorage.getItem('photoURL'); 
   
-  //grab previous saved values fr
+  //constructing json object
+	var jsonObj = {
+		"LostOrFound": LostOrFound, 
+		"title": title, 
+		"description": description, 
+		"category": category,
+		"photoURL": photoURL, 
+		"location": location, 
+		"date": date, 
+		"time": time
+
+	}
+  
+  //for testing if user input is collected properly
+  console.log("Json object: ", jsonObj); 
+  
+  //now send user data to server
+
 }
