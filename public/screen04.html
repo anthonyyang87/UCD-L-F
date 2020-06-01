@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UC Davis Lost and Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #feebb1;
+    }
+  </style>
+	<script src="script.js"></script>
+</head>
+<body>
+  <header>
+    <img id="logo" src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FLogo.png?v=1591015746007">
+  </header>
+  <h1>Input the found item</h1>
+	<form>
+		<label for="LostOrFound">Lost/Found</label><br>
+		<input type="text" id="LostOrFound" name="LostOrFound"><br>
+		<label for="title">Title</label><br>
+		<input type="text" id="title" name="title"><br>
+		<label for="category">Category</label><br>
+		<input type="text" id="category" name="category"><br>
+		<label for="description">Description</label><br>
+		<input type="text" id="description" name="description"><br>
+		<label for="photoURL">Photo URL</label><br>
+		<input type="text" id="photoURL" name="photoURL"><br>
+		<label for="date">Lost/Date</label><br>
+		<input type="text" id="date" name="date"><br>
+		<label for="time">Time</label><br>
+		<input type="text" id="time" name="time"><br>
+		<label for="location">Location</label><br>
+		<input type="text" id="location" name="location"><br><br>
+		<button type="button" onclick="next()">Next</button>
+	</form>
+</body>
+</html>
