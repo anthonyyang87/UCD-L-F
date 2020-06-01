@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UCD L&F Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
     <style>
       body {
         height: 100%;
         background-color: #365c85;
       }
-      
+
       main {
         display: flex;
         height: 100%;
       }
-      
+
       #shieldsImg {
         width: 50%;
         height; 100%;
@@ -25,7 +28,7 @@
         background-size: cover;
         background-position: center;
       }
-      
+
       #loginBtn {
         background-color: white;
         border-radius: 5px;
@@ -33,45 +36,71 @@
         width: 100px;
         display: inline-block;
       }
-      
+
       #loginBtn img {
         height: 100%;
       }
-      
+
       #loginBtn spam {
-        width: 
+        width:
       }
-      
+
+      .button {
+        background: #fff;
+        border-radius: 6px;
+        display: inline-block;
+        padding: 10px;
+        text-align: center;
+        max-width: 150px;
+        text-decoration: none;
+      }
+
+      .button figure {
+        margin: 0 auto;
+        width: 50px;
+      }
+
+      .button figure img {
+        border-radius: 100%;
+        width: 100%;
+      }
+
+      .button .text {
+        width: 70%;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #1d368a;
+        margin: 0 0 15px;
+        font-size: 16px;
+      }
     </style>
-</head>
-<body>
-  
-  <main>
-    <div id="shieldsImg"></div>
-    <div class="login">
-      <img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FLogo.png?v=1591015746007">
-      <div id="loginBtn">
-<!--         <img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2Fgoogle.jpg?v=1591018117727"> -->
-        <spam>
-          Login
-        </spam>
+  </head>
+  <body>
+    <main>
+      <div id="shieldsImg"></div>
+      <div class="login">
+        <img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FLogo.png?v=1591015746007"/>
+        <div class="button">
+          <figure><img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2Fgoogle.jpg?v=1591018117727" /></figure>
+          <div class="text">
+            Login with Google
+          </div>
+        </div>
       </div>
-    </div>
-  </main>
-  
-  <script>
-    "use strict";
-    
-    // Onclick for login button
-    document.querySelector('#loginBtn').addEventListener('click', () => {
-      var xmlhttp = new XMLHttpRequest();
-      
-      // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-      
-      // For testing
-      window.location.href = "screen02.html";
-    });
-  </script>
-    
-</body>
+    </main>
+
+    <script>
+      "use strict";
+
+      // Onclick for login button
+      document.querySelector(".button").addEventListener("click", () => {
+        var xmlhttp = new XMLHttpRequest();
+
+        // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        // For testing
+        window.location.href = "screen02.html";
+      });
+    </script>
+  </body>
 </html>
