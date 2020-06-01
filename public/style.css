@@ -1,0 +1,16 @@
+/* Header with logo */
+ header {
+        width: 100%;
+        height: auto;
+}
+
+header img {
+  float: right;
+  width: 20vw;
+  margin: 2vw;
+}
+
+/* Font */
+* {
+  font-family: "Montserrat", regular;
+}
