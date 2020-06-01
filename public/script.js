@@ -46,7 +46,7 @@ function finderNext(){
 	var title = document.getElementById('title').value; 
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
-	var photoURL = document.getElementById('imageUpload').value; 
+	var photoURL = document.getElementById('imageUpload').files[0].name; 
   
   //store in session storage
   sessionStorage.setItem('LostOrFound', LostOrFound); 
@@ -109,4 +109,68 @@ function sendToServer(data){
   
   // all set up!  Send off the HTTP request
   xmlhttp.send(JSON.stringify(data));
+}
+
+// UPLOAD IMAGE
+document.querySelector('#imgUpload').addEventListener('change', () => {
+  
+    // get the file with the file dialog box
+    const selectedFile = document.querySelector('#imgUpload').files[0];
+    // store it in a FormData object
+    const formData = new FormData();
+    formData.append('newImage',selectedFile, selectedFile.name);
+  
+   // let button = document.querySelector('.btn');
+
+    // build an HTTP request data structure
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/upload", true);
+    xhr.onloadend = function(e) {
+        // Get the server's response to the upload
+        console.log(xhr.responseText);
+        let newImage = document.querySelector("#cardImg");
+        newImage.src = "../images/"+selectedFile.name;
+        //console.log("Filename: ", selectedFile.name); 
+        newImage.style.display = 'block';
+        document.querySelector('.image').classList.remove('upload');
+        //button.textContent = 'Replace Image';
+      
+        //Here trigger upload to media storage
+        sendGetRequest(); 
+    }
+  
+    button.textContent = 'Uploading...';
+    // actually send the request
+    xhr.send(formData);
+});
+
+//THE FOLLOWING TWO FUNCTIONS ARE USED FOR MEDIA STORAGE
+/*
+function showMsg(elmtId, returnedText, otherOne) {
+        let msg = document.getElementById(elmtId);
+        msg.textContent = msg.textContent.trim()+returnedText;
+        msg.className = "visible";
+        
+        // you can only push the button once
+        let uploadButton = document.getElementById("sendRequest");
+        uploadButton.removeEventListener("click", sendGetRequest);
+}
+*/
+// sends an AJAX request asking the server 
+function sendGetRequest() {
+  let xhr = new XMLHttpRequest;
+  // it's a GET request, it goes to URL /seneUploadToAPI
+  xhr.open("GET","sendUploadToAPI");
+  
+  // Add an event listener for when the HTTP response is loaded
+  xhr.addEventListener("load", function() {
+      if (xhr.status == 200) {  // success
+        console.log("Image uploaded to media storage.");
+      } else { // failure
+        console.log("Upload to media storage failed!"); 
+      }
+  });
+  
+  // Actually send request to server
+  xhr.send();
 }
