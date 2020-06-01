@@ -101,9 +101,8 @@ function sendToServer(data){
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   // setup callback function
   xmlhttp.onloadend = function(e) {
-    console.log(xmlhttp.responseText);
     let response = xmlhttp.responseText; 
-    console.log("Response from server: "); 
+    console.log("Response from server: ", response); 
     // immediately switch to display view
     //window.open("display.html");
   }
