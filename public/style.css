@@ -11,6 +11,10 @@ header img {
 }
 
 /* Font */
-* {
+*, body, html {
   font-family: "Montserrat", regular;
+}
+
+h1 {
+  font-size: 2em;
 }
