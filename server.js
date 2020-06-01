@@ -75,7 +75,8 @@ app.post('/newItem', function (req, res) {
   // save the JSON string into database
   let randomString = makeRandStr(8); 
   let userData = JSON.stringify(req.body); 
-  
+  res.send(userData); 
+  /*
   //put new item into database
   cmd = "INSERT INTO PostcardTable ( randomString, jsonString) VALUES (?,?)"; 
   lostDB.run(cmd, randomString, userData, function(err){
@@ -87,6 +88,7 @@ app.post('/newItem', function (req, res) {
       res.send(randomString); 
     }
   }); 
+  */
   
 });
 

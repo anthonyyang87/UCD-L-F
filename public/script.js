@@ -38,9 +38,6 @@ function next(){
 
 }
 
-function sendToServer(jsonObj){
-	
-}
 
 function finderNext(){
   
@@ -92,5 +89,25 @@ function finderSubmit(){
   console.log("Json object: ", jsonObj); 
   
   //now send user data to server
+  sendToServer(jsonObj); 
+}
 
+function sendToServer(data){
+  
+  // new HttpRequest instance 
+  var xmlhttp = new XMLHttpRequest();   
+  xmlhttp.open("POST", '/newItem');
+  // important to set this for body-parser
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  // setup callback function
+  xmlhttp.onloadend = function(e) {
+    console.log(xmlhttp.responseText);
+    let response = xmlhttp.responseText; 
+    console.log("Response from server: "); 
+    // immediately switch to display view
+    //window.open("display.html");
+  }
+  
+  // all set up!  Send off the HTTP request
+  xmlhttp.send(JSON.stringify(data));
 }
