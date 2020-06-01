@@ -46,7 +46,7 @@ function finderNext(){
 	var title = document.getElementById('title').value; 
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
-	var photoURL = document.getElementById('photoURL').value; 
+	var photoURL = document.getElementById('imageUpload').value; 
   
   //store in session storage
   sessionStorage.setItem('LostOrFound', LostOrFound); 
