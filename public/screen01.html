@@ -48,9 +48,12 @@
     
     // Onclick for login button
     document.querySelector('#loginBtn').addEventListener('click', () => {
-      var xml = new XMLHttpRequest();
+      var xmlhttp = new XMLHttpRequest();
       
-      xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      // xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      
+      // For testing
+      window.location.href = "screen02.html";
     });
   </script>
     
