@@ -112,7 +112,7 @@ function sendToServer(data){
 }
 
 // UPLOAD IMAGE
-document.querySelector('#imgUpload').addEventListener('change', () => {
+document.getElementById('imgUpload').addEventListener('click', () => {
   
     // get the file with the file dialog box
     const selectedFile = document.querySelector('#imgUpload').files[0];
@@ -139,7 +139,7 @@ document.querySelector('#imgUpload').addEventListener('change', () => {
         sendGetRequest(); 
     }
   
-    button.textContent = 'Uploading...';
+    //button.textContent = 'Uploading...';
     // actually send the request
     xhr.send(formData);
 });
@@ -174,3 +174,6 @@ function sendGetRequest() {
   // Actually send request to server
   xhr.send();
 }
+
+//
+function uploadImg
