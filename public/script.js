@@ -1,14 +1,14 @@
 function finderNext(){
   
   //read from user input
-  var LostOrFound = document.getElementById('LostOrFound').value; 
+  //var LostOrFound = document.getElementById('LostOrFound').value; 
 	var title = document.getElementById('title').value; 
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
 	var photoName = document.getElementById('imgUpload').files[0].name; 
   
   //store in session storage
-  sessionStorage.setItem('LostOrFound', LostOrFound); 
+  //sessionStorage.setItem('LostOrFound', LostOrFound); 
   sessionStorage.setItem('title', title); 
   sessionStorage.setItem('description', description); 
   sessionStorage.setItem('category', category); 
@@ -35,7 +35,7 @@ function finderNext(){
       
         //Here trigger upload to media storage
         sendGetRequest(); 
-        console.log("Input data: ", sessionStorage.getItem("photoname")); 
+        console.log("Input data: ", sessionStorage.getItem("photoName")); 
         
         //window.location.href = "screen04.html";
     }
@@ -56,7 +56,7 @@ function finderSubmit(){
   
 
   //grab saved values in previous page
-  var LostOrFound = sessionStorage.getItem('LostOrFound'); 
+  //var LostOrFound = sessionStorage.getItem('LostOrFound'); 
   var title = sessionStorage.getItem('title'); 
   var description = sessionStorage.getItem('description'); 
   var category = sessionStorage.getItem('category'); 
@@ -64,7 +64,7 @@ function finderSubmit(){
   
   //constructing json object
 	var jsonObj = {
-		"LostOrFound": LostOrFound, 
+		//"LostOrFound": LostOrFound, 
 		"title": title, 
 		"description": description, 
 		"category": category,
