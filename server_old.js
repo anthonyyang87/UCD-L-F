@@ -47,20 +47,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json()); 
 
 
-//here handles GET requests from client
-function handlePostcard(req, res, next){
-  //let url = "g"; 
-  let key = req.query.id; 
-  let cmd = "SELECT randomString, jsonString FROM PostCardTable WHERE randomString=?";
-  lostDB.all(cmd, key, function (err, data){
-    if (err){
-      console.log("Database reading error:", err.message); 
-    } else {
-      res.json(data[0]["jsonString"]); 
-      console.log(data[0]["jsonString"]); 
-    }
-  })
-}
+//Handle get request from client
 
 // Now construct the server pipeline
 // Special case for request with just the base URL
