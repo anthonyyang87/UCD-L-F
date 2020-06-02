@@ -10,6 +10,10 @@ const fs = require('fs');
 const sql = require("sqlite3").verbose();
 const FormData = require("form-data");
 
+
+const OAuthID = "971930675546-864jqnkaernfs9fks10bfrfmtorstjju.apps.googleusercontent.com";
+const OAuthsecret = "0VN1aalDI_jB99X_MCY7s-8s";
+
 let filename = ""; 
 let filename2 = ""; 
 //creating database if not exist
