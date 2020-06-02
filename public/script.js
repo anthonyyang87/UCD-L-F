@@ -121,7 +121,9 @@ function sendToServer(data){
 function uploadImage(selectedFile){
   //store in formData
   const formData = new FormData(); 
+  var new
   formData.append('newImage', selectedFile, selectedFile.name); 
+  //formData.append('newImage', selectedFile); 
   
   //build http request data structure
   const xhr = new XMLHttpRequest(); 
