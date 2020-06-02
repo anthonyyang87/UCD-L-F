@@ -38,6 +38,9 @@ function next(){
 
 }
 
+window.onload = function(){
+  document.getElementById('imgUoload').addEventListener('click', uploadImage2()); 
+}
 
 function finderNext(){
   
@@ -151,6 +154,34 @@ function uploadImage(data){
   const formData = new FormData(); 
   console.log("Data Type: ", typeof data); 
   console.log("Photo Data: ", data); 
+  var selectedFile = data;  
+  formData.append('newImage', selectedFile, selectedFile.name); 
+  //formData.append('newImage', selectedFile); 
+  
+  //build http request data structure
+  const xhr = new XMLHttpRequest(); 
+  xhr.open("POST", "/upload", true); 
+  xhr.onloadend = function(e) {
+        // Get the server's response to the upload
+        console.log(xhr.responseText);
+        let newImage = document.querySelector("#cardImg");
+        newImage.src = "../images/"+selectedFile.name;
+        //console.log("Filename: ", selectedFile.name); 
+        newImage.style.display = 'block';
+        document.querySelector('.image').classList.remove('upload');
+      
+        //Here trigger upload to media storage
+        sendGetRequest(); 
+    }
+  
+    // actually send the request
+    xhr.send(formData);
+}
+
+function uploadImage2(){
+  //store in formData
+  document.getElementById("")
+  const formData = new FormData(); 
   var selectedFile = data;  
   formData.append('newImage', selectedFile, selectedFile.name); 
   //formData.append('newImage', selectedFile); 
