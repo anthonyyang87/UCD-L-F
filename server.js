@@ -210,6 +210,7 @@ function gotProfile(accessToken, refreshToken, profile, done) {
     if (!emailAddress.includes('ucdavis.edu')) {
       // Indicate user did NOT login with a UCD email
       dbRowID = -1;
+      console.log("Non UCD email!");
     }
 
     done(null, dbRowID); 
