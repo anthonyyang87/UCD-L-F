@@ -132,7 +132,7 @@ app.get('/auth/google', passport.authenticate('google'));
 // else for a non-UCDavis ID, do it there. 
 app.get('/auth/accepted', 
   passport.authenticate('google', 
-    { successRedirect: '/setcookie', failureRedirect: '/' }
+    { successRedirect: '/setcookie', failureRedirect: '/?email=notUCD'  }
   )
 );
 
