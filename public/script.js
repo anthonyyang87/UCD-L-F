@@ -47,8 +47,8 @@ function finderNext(){
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
 	var photoURL = document.getElementById('imgUpload').files[0].name; 
-  var photoData = document.getElementById('imgUpload').files[0]; 
-  
+  var photoData = document.getElementById('imgUpload'); 
+  console.log("Photo Data: ", photoData); 
   //store in session storage
   sessionStorage.setItem('LostOrFound', LostOrFound); 
   sessionStorage.setItem('title', title); 
@@ -118,10 +118,11 @@ function sendToServer(data){
 }
 
 
-function uploadImage(selectedFile){
+function uploadImage(data){
   //store in formData
   const formData = new FormData(); 
-  var new
+  console.log("Data Type: ", typeof data); 
+  var selectedFile = data.files[0];  
   formData.append('newImage', selectedFile, selectedFile.name); 
   //formData.append('newImage', selectedFile); 
   
