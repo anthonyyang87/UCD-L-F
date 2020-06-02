@@ -38,9 +38,6 @@ function next(){
 
 }
 
-window.onload = function(){
-  document.getElementById('imgUoload').addEventListener('click', uploadImage2()); 
-}
 
 function finderNext(){
   
@@ -52,6 +49,13 @@ function finderNext(){
 	var photoURL = document.getElementById('imgUpload').files[0].name; 
   var photoData = document.getElementById('imgUpload').files[0]; 
   
+  //store in session storage
+  sessionStorage.setItem('LostOrFound', LostOrFound); 
+  sessionStorage.setItem('title', title); 
+  sessionStorage.setItem('description', description); 
+  sessionStorage.setItem('category', category); 
+  sessionStorage.setItem('photoURL', photoURL); 
+  sessionStorage.setItem('photoData', photoData); 
   
   //experiment handle upload photo here
   var selectedFile = document.getElementById('imgUpload').files[0];
@@ -74,21 +78,15 @@ function finderNext(){
       
         //Here trigger upload to media storage
         sendGetRequest(); 
+        
+        window.location.href = "screen04.html";
     }
   
     // actually send the request
     xhr.send(formData);
   
-  //store in session storage
-  sessionStorage.setItem('LostOrFound', LostOrFound); 
-  sessionStorage.setItem('title', title); 
-  sessionStorage.setItem('description', description); 
-  sessionStorage.setItem('category', category); 
-  sessionStorage.setItem('photoURL', photoURL); 
-  sessionStorage.setItem('photoData', photoData); 
-  
   //uploadImage(photoData); 
-  window.location.href = "screen04.html";
+  //window.location.href = "screen04.html";
   
 }
 
@@ -180,9 +178,9 @@ function uploadImage(data){
 
 function uploadImage2(){
   //store in formData
-  document.getElementById("")
+  var selectedFile = document.getElementById("imgUpload").files[0]; 
   const formData = new FormData(); 
-  var selectedFile = data;  
+  //var selectedFile = data;  
   formData.append('newImage', selectedFile, selectedFile.name); 
   //formData.append('newImage', selectedFile); 
   
