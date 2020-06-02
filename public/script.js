@@ -159,18 +159,8 @@ function showMsg(elmtId, returnedText, otherOne) {
 }
 */
 
-let uploadButton = document.getElementById("sendRequest");
-uploadButton.addEventListener("click", sendGetRequest);
-
-function showMsg(elmtId, returnedText, otherOne) {
-        let msg = document.getElementById(elmtId);
-        msg.textContent = msg.textContent.trim()+returnedText;
-        msg.className = "visible";
-        
-        // you can only push the button once
-        let uploadButton = document.getElementById("sendRequest");
-        uploadButton.removeEventListener("click", sendGetRequest);
-}
+//let uploadButton = document.getElementById("imgUpload");
+//uploadButton.addEventListener("click", sendGetRequest);
 
 // sends an AJAX request asking the server 
 function sendGetRequest() {
@@ -181,9 +171,9 @@ function sendGetRequest() {
   // Add an event listener for when the HTTP response is loaded
   xhr.addEventListener("load", function() {
       if (xhr.status == 200) {  // success
-        showMsg("goodMessage",xhr.responseText);
+        console.log("Image uploaded to media storage.");
       } else { // failure
-        showMsg("badMessage",xhr.responseText);
+        console.log("Upload to media storage failed!"); 
       }
   });
   

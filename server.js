@@ -192,16 +192,6 @@ function sendMediaStore(filename, serverRequest, serverResponse) {
   }
 }
 
-//generating random string
-function makeRandStr(length) {
-   var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-   var charactersLength = characters.length;
-   for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   return result;
-}
 
 // The GET AJAX query is handled by the static server, since the 
 // file postcardData.json is stored in /public
