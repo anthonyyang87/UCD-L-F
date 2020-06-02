@@ -158,6 +158,20 @@ function showMsg(elmtId, returnedText, otherOne) {
         uploadButton.removeEventListener("click", sendGetRequest);
 }
 */
+
+let uploadButton = document.getElementById("sendRequest");
+uploadButton.addEventListener("click", sendGetRequest);
+
+function showMsg(elmtId, returnedText, otherOne) {
+        let msg = document.getElementById(elmtId);
+        msg.textContent = msg.textContent.trim()+returnedText;
+        msg.className = "visible";
+        
+        // you can only push the button once
+        let uploadButton = document.getElementById("sendRequest");
+        uploadButton.removeEventListener("click", sendGetRequest);
+}
+
 // sends an AJAX request asking the server 
 function sendGetRequest() {
   let xhr = new XMLHttpRequest;
@@ -167,48 +181,17 @@ function sendGetRequest() {
   // Add an event listener for when the HTTP response is loaded
   xhr.addEventListener("load", function() {
       if (xhr.status == 200) {  // success
-        console.log("Image uploaded to media storage.");
+        showMsg("goodMessage",xhr.responseText);
       } else { // failure
-        console.log("Upload to media storage failed!"); 
+        showMsg("badMessage",xhr.responseText);
       }
   });
   
   // Actually send request to server
   xhr.send();
 }
-
-//document.getElementById("imgUpload").addEventListener('click', uploadImg); 
-
-function uploadImg(){
-    // get the file with the file dialog box
-    const selectedFile = document.querySelector('#imgUpload').files[0];
-    // store it in a FormData object
-    const formData = new FormData();
-    formData.append('newImage',selectedFile, selectedFile.name);
   
-   // let button = document.querySelector('.btn');
 
-    // build an HTTP request data structure
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/upload", true);
-    xhr.onloadend = function(e) {
-        // Get the server's response to the upload
-        console.log(xhr.responseText);
-        let newImage = document.querySelector("#cardImg");
-        newImage.src = "../images/"+selectedFile.name;
-        //console.log("Filename: ", selectedFile.name); 
-        newImage.style.display = 'block';
-        document.querySelector('.image').classList.remove('upload');
-        //button.textContent = 'Replace Image';
-      
-        //Here trigger upload to media storage
-        sendGetRequest(); 
-    }
-  
-    //button.textContent = 'Uploading...';
-    // actually send the request
-    xhr.send(formData);
-}
 
 //THE FOLLOWING TWO FUNCTIONS ARE USED FOR MEDIA STORAGE
 /*
