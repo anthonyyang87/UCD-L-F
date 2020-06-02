@@ -70,16 +70,11 @@ function finderNext(){
   xhr.onloadend = function(e) {
         // Get the server's response to the upload
         console.log(xhr.responseText);
-        let newImage = document.querySelector("#cardImg");
-        newImage.src = "../images/"+selectedFile.name;
-        //console.log("Filename: ", selectedFile.name); 
-        newImage.style.display = 'block';
-        document.querySelector('.image').classList.remove('upload');
       
         //Here trigger upload to media storage
         sendGetRequest(); 
         
-        window.location.href = "screen04.html";
+        //window.location.href = "screen04.html";
     }
   
     // actually send the request
