@@ -247,9 +247,8 @@ function requireUser (req, res, next) {
   if (!req.user) {
     res.redirect('/');
   } else {
-    console.log(req.user != -1);
-    if(req.user != '-1') {
-      res.redirect('/screen01.html/query?email=notUCD');
+    if(req.user == -1) {
+      res.redirect('/screen01.html?email=notUCD');
     } else {
       res.redirect('/screen02.html');
     }
