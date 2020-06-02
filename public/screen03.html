@@ -8,6 +8,33 @@
   <style>
     body {
       background-color: #feebb1;
+      
+    }
+    
+    main {
+      text-align: center;
+      color: #142a50;
+      width: 90:
+    }
+    
+    h1 {
+      font-weight: bolder;
+    }
+    
+    #form {
+      background-color: white;
+      mar
+    }
+    
+    .search-container button {
+      float: right;
+      padding: 6px 10px;
+      margin-top: 8px;
+      margin-right: 16px;
+      background: #fff;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
     }
     
   </style>
@@ -17,20 +44,33 @@
   <header>
     <img id="logo" src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FLogo.png?v=1591015746007">
   </header>
-  <h1>Input the found item</h1>
-	<form>
-		<label for="LostOrFound">Lost/Found</label><br>
-		<input type="text" id="LostOrFound" name="LostOrFound"><br>
-		<label for="title">Title</label><br>
-		<input type="text" id="title" name="title"><br>
-		<label for="category">Category</label><br>
-		<input type="text" id="category" name="category"><br>
-		<label for="description">Description</label><br>
-		<input type="text" id="description" name="description"><br>
-		<label for="photoURL">Attach A Photo(Optional)</label><br>
-    <input id="imgUpload" type="file" accept="image/*" name="photo"/><br>
-		<button type="button" id="nextBtn">Next</button>
-	</form>
+  <main>
+    <h1>Input the found item</h1>
+    <section id="form">
+      <form>
+        <label for="title">Title</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="category">Category</label><br>
+        <input type="text" id="category" name="category"><br>
+        <label for="description">Description</label><br>
+        <input type="text" id="description" name="description"><br>
+        <label for="photoURL">Attach A Photo(Optional)</label><br>
+        <input id="imgUpload" type="file" accept="image/*" name="photo"/><br>
+        <button type="button" id="nextBtn">Next</button>
+    </form>
+    </section>
+
+    <section id="search">
+      <h1>Or search for existing requests</h1>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </section>
+  </main>
+	
   
   <script>
     document.querySelector('#nextBtn').addEventListener('click', () => {
