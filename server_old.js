@@ -33,7 +33,15 @@ lostDB.get(cmd, function(err, val){
 
 //the function that creates database
 function createDB() {
-	const cmd = " CREATE TABLE LostAndFoundTable ()"; 
+	const cmd = " CREATE TABLE LostAndFoundTable (id INTEGER PRIMARY KEY, lostOrFound TEXT, title TEXT, category TEXT, \
+  description TEXT, photoURL TEXT, date TEXT, time TEXT, location TEXT)"; 
+  lostDB.get(cmd, function(err, val){
+    if(err){
+      console.log("Database Creation Error: ", err); 
+    } else {
+      console.log("Database Created!"); 
+    }
+  }); 
 }
 
 // begin constructing the server pipeline
@@ -64,9 +72,10 @@ app.use(bodyParser.json());
 app.post('/newItem', function (req, res) {
   console.log("Server received: ", req.body);
   // save the JSON string into database
-  let randomString = makeRandStr(8); 
   let userData = JSON.stringify(req.body); 
+  
   res.send(userData); 
+  
   /*
   //put new item into database
   cmd = "INSERT INTO PostcardTable ( randomString, jsonString) VALUES (?,?)"; 
