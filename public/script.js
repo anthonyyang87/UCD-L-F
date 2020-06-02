@@ -111,12 +111,12 @@ function sendToServer(data){
   xmlhttp.send(JSON.stringify(data));
 }
 
-/*
+
 // UPLOAD IMAGE
 document.getElementById('imgUpload').addEventListener('click', () => {
   
     // get the file with the file dialog box
-    const selectedFile = document.querySelector('#imgUpload').files[0];
+    const selectedFile = document.getElementById("imgUpload").files[0];
     // store it in a FormData object
     const formData = new FormData();
     formData.append('newImage',selectedFile, selectedFile.name);
@@ -145,25 +145,14 @@ document.getElementById('imgUpload').addEventListener('click', () => {
     xhr.send(formData);
 });
 
-*/
-//THE FOLLOWING TWO FUNCTIONS ARE USED FOR MEDIA STORAGE
-/*
-function showMsg(elmtId, returnedText, otherOne) {
-        let msg = document.getElementById(elmtId);
-        msg.textContent = msg.textContent.trim()+returnedText;
-        msg.className = "visible";
-        
-        // you can only push the button once
-        let uploadButton = document.getElementById("sendRequest");
-        uploadButton.removeEventListener("click", sendGetRequest);
-}
-*/
 
 //let uploadButton = document.getElementById("imgUpload");
 //uploadButton.addEventListener("click", sendGetRequest);
 
 // sends an AJAX request asking the server 
 function sendGetRequest() {
+  
+  alert("Hi"); 
   let xhr = new XMLHttpRequest;
   // it's a GET request, it goes to URL /seneUploadToAPI
   xhr.open("GET","sendUploadToAPI");
