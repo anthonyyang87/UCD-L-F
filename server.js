@@ -16,6 +16,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 
+// let dbRowId = 1;
+
 // Setup passport, passing it information about what we want to do
 passport.use(new GoogleStrategy(
   // object containing data to be sent to Google to kick off the login process
@@ -179,9 +181,9 @@ var listener = app.listen(process.env.PORT, function() {
 // Function for debugging. Just prints the incoming URL, and calls next.
 // Never sends response back. 
 function printIncomingRequest (req, res, next) {
-    console.log("Serving",req.url);
+    // console.log("Serving",req.url);
     if (req.cookies) {
-      console.log("cookies",req.cookies)
+      // console.log("cookies",req.cookies)
     }
     next();
 }
@@ -197,13 +199,18 @@ function gotProfile(accessToken, refreshToken, profile, done) {
     // should be key to get user out of database.
   
     // Check if email is a UCD email
-    var email = profile['email'];
-    console.log('user email', email);
+    var emailAddress = profile['emails'][0]['value'];
+    console.log('user email: ', emailAddress);
 
     let dbRowID = 1;  // temporary! Should be the real unique
     // key for db Row for this user in DB table.
     // Note: cannot be zero, has to be something that evaluates to
     // True.  
+  
+    if (!emailAddress.includes('ucdavis.edu')) {
+      // Indicate user did NOT login with a UCD email
+      dbRowID = -1;
+    }
 
     done(null, dbRowID); 
 }
