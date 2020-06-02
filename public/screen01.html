@@ -73,27 +73,19 @@
         margin: 0 0 15px;
         font-size: 16px;
       }
-      
-      #errorMsg {
-        color: red;
-        font-weight: bolder;
-      }
     </style>
   </head>
   <body>
     <main>
       <div id="shieldsImg"></div>
-      <div>
+      <div class="login">
         <img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FLogo.png?v=1591015746007"/>
-        <a href="auth/google" class="login">
-          <div class="button">
-            <figure><img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2Fgoogle.jpg?v=1591018117727" /></figure>
-            <div class="text">
-              Login with Google
-            </div>
+        <div class="button">
+          <figure><img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2Fgoogle.jpg?v=1591018117727" /></figure>
+          <div class="text">
+            Login with Google
           </div>
-        </a>
-        <h1 id="errorMsg"></h1>
+        </div>
       </div>
     </main>
 
@@ -109,15 +101,6 @@
         // For testing
         window.location.href = "screen02.html";
       });
-      
-      // TO display error message
-      let url = window.location.href;
-      let isUCD = url.slice(url.indexOf("email=")+6);
-      console.log("isUCD: " + isUCD);
-      
-      if(isUCD == 'notUCD#') {
-        document.querySelector('#errorMsg').innerHTML = 'Please login with UCD emaill!';
-      }
     </script>
   </body>
 </html>
