@@ -28,7 +28,7 @@ passport.use(new GoogleStrategy(
   // CHANGE THE FOLLOWING LINE TO USE THE NAME OF YOUR APP
   callbackURL: 'https://cool-ant-eth.glitch.me/auth/accepted',  
   userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo', // where to go for info
-  scope: ['profile']  // the information we will ask for from Google
+  scope: ['profile', 'email']  // the information we will ask for from Google
 },
   // function to call to once login is accomplished, to get info about user from Google;
   // it is defined down below.
@@ -195,6 +195,10 @@ function gotProfile(accessToken, refreshToken, profile, done) {
     // and to store him in DB if not already there. 
     // Second arg to "done" will be passed into serializeUser,
     // should be key to get user out of database.
+  
+    // Check if email is a UCD email
+    var email = profile['email'];
+    console.log('user email', email);
 
     let dbRowID = 1;  // temporary! Should be the real unique
     // key for db Row for this user in DB table.
