@@ -35,8 +35,9 @@ function finderNext(){
       
         //Here trigger upload to media storage
         sendGetRequest(); 
+        console.log("Input data: ", sessionStorage.getItem("photoname")); 
         
-        window.location.href = "screen04.html";
+        //window.location.href = "screen04.html";
     }
   
     // actually send the request
@@ -71,7 +72,6 @@ function finderSubmit(){
 		"location": location, 
 		"date": date, 
 		"time": time
-
 	}
   
   //for testing if user input is collected properly
