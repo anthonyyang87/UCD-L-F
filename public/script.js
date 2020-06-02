@@ -47,6 +47,7 @@ function finderNext(){
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
 	var photoURL = document.getElementById('imgUpload').files[0].name; 
+  var photoData = document.getElementById('imgUpload').files[0]; 
   
   //store in session storage
   sessionStorage.setItem('LostOrFound', LostOrFound); 
@@ -54,6 +55,7 @@ function finderNext(){
   sessionStorage.setItem('description', description); 
   sessionStorage.setItem('category', category); 
   sessionStorage.setItem('photoURL', photoURL); 
+  sessionStorage.setItem('photoData', photoData); 
   
   window.location.href = "screen04.html";
   
@@ -71,6 +73,7 @@ function finderSubmit(){
   var description = sessionStorage.getItem('description'); 
   var category = sessionStorage.getItem('category'); 
   var photoURL = sessionStorage.getItem('photoURL'); 
+  var photoData = sessionStorage.getItem('photoData'); 
   
   //constructing json object
 	var jsonObj = {
@@ -90,6 +93,9 @@ function finderSubmit(){
   
   //now send user data to server
   sendToServer(jsonObj); 
+  
+  //uploading image to server
+  uploadImage(); 
 }
 
 function sendToServer(data){
@@ -111,7 +117,13 @@ function sendToServer(data){
   xmlhttp.send(JSON.stringify(data));
 }
 
+window.onload = function(){
+  document.getElementById('imgUpload').addEventListener('click', uploadImage()); 
+}
 
+function uploadImage(){
+  
+}
 
 //THE FOLLOWING TWO FUNCTIONS ARE USED FOR MEDIA STORAGE
 /*
