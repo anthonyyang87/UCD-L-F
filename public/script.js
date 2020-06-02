@@ -5,16 +5,14 @@ function finderNext(){
 	var title = document.getElementById('title').value; 
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
-	var photoURL = document.getElementById('imgUpload').files[0].name; 
-  var photoData = document.getElementById('imgUpload').files[0]; 
+	var photoName = document.getElementById('imgUpload').files[0].name; 
   
   //store in session storage
   sessionStorage.setItem('LostOrFound', LostOrFound); 
   sessionStorage.setItem('title', title); 
   sessionStorage.setItem('description', description); 
   sessionStorage.setItem('category', category); 
-  sessionStorage.setItem('photoURL', photoURL); 
-  sessionStorage.setItem('photoData', photoData); 
+  sessionStorage.setItem('photoName', photoName); 
   
   //experiment handle upload photo here
   var selectedFile = document.getElementById('imgUpload').files[0];
@@ -61,8 +59,7 @@ function finderSubmit(){
   var title = sessionStorage.getItem('title'); 
   var description = sessionStorage.getItem('description'); 
   var category = sessionStorage.getItem('category'); 
-  var photoURL = sessionStorage.getItem('photoURL'); 
-  var photoData = sessionStorage.getItem('photoData'); 
+  var photoName = sessionStorage.getItem('photoName'); 
   
   //constructing json object
 	var jsonObj = {
@@ -70,7 +67,7 @@ function finderSubmit(){
 		"title": title, 
 		"description": description, 
 		"category": category,
-		"photoURL": photoURL, 
+		"photoName": photoName, 
 		"location": location, 
 		"date": date, 
 		"time": time
