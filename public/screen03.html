@@ -26,11 +26,22 @@
       background-color: white;
       width: 90%;
       margin: auto;
+      padding: 20px;
+    }
+    
+    #form label {
+      text-algin: left;
+      width: 90%;
     }
     
     #form input {
       background-color:#e5e5e5;
       border: none;
+      width: 90%;
+    }
+    
+    #form #description {
+      height: 200px;
     }
     
     .search-container button {
@@ -58,12 +69,19 @@
         <label for="title">Title</label><br>
         <input type="text" id="title" name="title"><br>
         <label for="category">Category</label><br>
-        <input type="text" id="category" name="category"><br>
+        <input list="category" id="category" name="category"><br>
+          <datalist id="category">
+            <option value="Edge"/>
+            <option value="Firefox"/>
+            <option value="Chrome"/>
+            <option value="Opera"/>
+            <option value="Safari"/>
+          </datalist>
         <label for="description">Description</label><br>
         <input type="text" id="description" name="description"><br>
         <label for="photoURL">Attach A Photo(Optional)</label><br>
         <input id="imgUpload" type="file" accept="image/*" name="photo" title=" "/>        
-        
+        <br>
         <button type="button" id="nextBtn">Next</button>
     </form>
     </section>
