@@ -16,6 +16,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 
+const request = require('request')
+
 // let dbRowId = 1;
 
 // Setup passport, passing it information about what we want to do
@@ -211,6 +213,10 @@ function gotProfile(accessToken, refreshToken, profile, done) {
       // Indicate user did NOT login with a UCD email
       dbRowID = -1;
       console.log("Non UCD email!");
+      request.get('https://accounts.google.com/o/oauth2/revoke', {
+        qs:{token: accessToken }},  function (err, res, body) {
+        console.log("revoked token");
+      }) 
     }
 
     done(null, dbRowID); 
