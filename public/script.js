@@ -113,7 +113,13 @@ function sendToServer(data){
 
 
 // UPLOAD IMAGE
-document.getElementById('imgUpload').addEventListener('click', () => {
+
+window.onload=function(){
+  document.getElementById('imgUpload').addEventListener('click', uploadImg()); 
+}
+
+
+function uploadImg(){
   
     // get the file with the file dialog box
     const selectedFile = document.getElementById("imgUpload").files[0];
@@ -143,7 +149,7 @@ document.getElementById('imgUpload').addEventListener('click', () => {
     //button.textContent = 'Uploading...';
     // actually send the request
     xhr.send(formData);
-});
+}
 
 
 //let uploadButton = document.getElementById("imgUpload");
