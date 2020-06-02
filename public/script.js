@@ -47,8 +47,35 @@ function finderNext(){
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
 	var photoURL = document.getElementById('imgUpload').files[0].name; 
-  var photoData = document.getElementById('imgUpload'); 
-  console.log("Photo Data: ", photoData); 
+  var photoData = document.getElementById('imgUpload').files[0]; 
+  
+  
+  //experiment handle upload photo here
+  var selectedFile = document.getElementById('imgUpload').files[0];
+  const formData = new FormData(); 
+ 
+  formData.append('newImage', selectedFile, selectedFile.name); 
+  //formData.append('newImage', selectedFile); 
+  
+  //build http request data structure
+  const xhr = new XMLHttpRequest(); 
+  xhr.open("POST", "/upload", true); 
+  xhr.onloadend = function(e) {
+        // Get the server's response to the upload
+        console.log(xhr.responseText);
+        let newImage = document.querySelector("#cardImg");
+        newImage.src = "../images/"+selectedFile.name;
+        //console.log("Filename: ", selectedFile.name); 
+        newImage.style.display = 'block';
+        document.querySelector('.image').classList.remove('upload');
+      
+        //Here trigger upload to media storage
+        sendGetRequest(); 
+    }
+  
+    // actually send the request
+    xhr.send(formData);
+  
   //store in session storage
   sessionStorage.setItem('LostOrFound', LostOrFound); 
   sessionStorage.setItem('title', title); 
@@ -57,6 +84,7 @@ function finderNext(){
   sessionStorage.setItem('photoURL', photoURL); 
   sessionStorage.setItem('photoData', photoData); 
   
+  //uploadImage(photoData); 
   window.location.href = "screen04.html";
   
 }
@@ -95,7 +123,7 @@ function finderSubmit(){
   sendToServer(jsonObj); 
   
   //uploading image to server
-  uploadImage(photoData); 
+  //uploadImage(photoData); 
 }
 
 function sendToServer(data){
@@ -122,7 +150,8 @@ function uploadImage(data){
   //store in formData
   const formData = new FormData(); 
   console.log("Data Type: ", typeof data); 
-  var selectedFile = data.files[0];  
+  console.log("Photo Data: ", data); 
+  var selectedFile = data;  
   formData.append('newImage', selectedFile, selectedFile.name); 
   //formData.append('newImage', selectedFile); 
   
