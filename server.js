@@ -147,7 +147,7 @@ app.get('/setcookie', requireUser,
   
       // set a public cookie; the session cookie was already set by Passport
       res.cookie('google-passport-example', new Date());
-      res.redirect('/user/hello.html');
+      // res.redirect('/user/hello.html');
     //} else {
     //   res.redirect('/');
     //}
@@ -238,7 +238,7 @@ passport.deserializeUser((dbRowID, done) => {
     // here is a good place to look up user data in database using
     // dbRowID. Put whatever you want into an object. It ends up
     // as the property "user" of the "req" object. 
-    let userData = {userData: "maybe data from db row goes here"};
+    let userData = dbRowID;
     done(null, userData);
 });
 
@@ -247,8 +247,13 @@ function requireUser (req, res, next) {
   if (!req.user) {
     res.redirect('/');
   } else {
-    console.log("user is",req.user);
-    next();
+    console.log(req.user != -1);
+    if(req.user != '-1') {
+      res.redirect('/screen01.html/query?email=notUCD');
+    } else {
+      res.redirect('/screen02.html');
+    }
+    // next();
   }
 };
 
