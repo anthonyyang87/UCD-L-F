@@ -60,12 +60,16 @@
         <form action="/action_page.php">
           <input type="text" placeholder="Search.." name="search">
           <button type="submit"><i class="fa fa-search"></i></button><br>
-          <button type="button" class="btn" onclick="searchForResult()">Search</button>
+          <button type="button" class="btn" onclick="redirect()">Search</button>
         </form>
       </div>
     </section>
     
-    <sc
+    <script>
+      function redirect(){
+        window.location.href = "screen05.html"; 
+      }
+    </script>
   </main>
 </body>
 </html>

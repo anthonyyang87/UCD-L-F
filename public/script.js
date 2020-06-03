@@ -125,6 +125,12 @@ function sendGetRequest() {
   xhr.send();
 }
 
-function searchForResult(){
-  window.location.href = "screen05.html"; 
+function showDataStored(){
+  let xhr = new XMLHttpRequest; 
+  xhr.open("GET", "getDataFromDB"); 
+  
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  
+  
+  
 }
