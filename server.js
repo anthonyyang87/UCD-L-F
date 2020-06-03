@@ -344,20 +344,22 @@ app.post('/newItem', function (req, res) {
   let randomString = makeRandStr(8); 
   let userData = JSON.stringify(req.body); 
   res.send(userData); 
-  /*
-  //put new item into database
-  cmd = "INSERT INTO PostcardTable ( randomString, jsonString) VALUES (?,?)"; 
-  lostDB.run(cmd, randomString, userData, function(err){
-    if(err) {
-      console.log("Database Insert Error!"); 
-    } else {
-      let newId = this.lastID; //rowid of last inserted item
-      
-      res.send(randomString); 
-    }
-  }); 
-  */
   
+  //parse received data and store into database
+  
+  var data = req.body; 
+  var title = data.title, 
+      lostOrFound = data.LostOrFound, 
+      category = data.category, 
+      description = data.description, 
+      time = data.time, 
+      date = data.date, 
+      location = data.location; 
+  
+  var photoURL = "http://ecs162.org:3000/images/antyang/" + data.photoURL; 
+      
+  //save to database
+  cmd = "INSERT INTO LostAndFoundTable ()"
 });
 
 let storage = multer.diskStorage({
