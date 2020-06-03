@@ -154,11 +154,15 @@ function loadResult(){
   
   //construct json object
   var jsonObj = {
-    cateo
-  }
-  let xhr = new XMLHttpRequest; 
-  xhr.open("GET", "getResultFromDB"); 
+    category: category, 
+    location: location, 
+    date: date, 
+    time: time
+  }; 
   
+  //send to server
+  let xhr = new XMLHttpRequest; 
+  xhr.open("GET", "getSearchResult");
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   
   xhr.onloadend = function(e){
@@ -167,7 +171,7 @@ function loadResult(){
   }
   
   //sending request to server
-  xhr.send(); 
+  xhr.send(JSON.stringify(jsonObj)); 
 }
 
 //this function shows all the data stored in the DB

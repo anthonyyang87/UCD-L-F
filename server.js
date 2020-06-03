@@ -345,6 +345,15 @@ app.get('/getDataFromDB', function (req, res){
   }); 
 }); 
 
+//Hondle a get request for search result
+app.get('/getSearchResult', function(req, res){
+  //read and parse request packet
+  var data = req.body; 
+  var category = data.category; 
+  var location = data.location; 
+  var date = data.date; 
+  var time = data.time
+}); 
 
 // Handle a POST request containing JSON
 app.use(bodyParser.json());
