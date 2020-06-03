@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>UC Davis Lost and Found</title>
@@ -9,8 +9,18 @@
     body {
       background-color: #feebb1;
     }
+    
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+      height: 100%;
+    }
   </style>
-	<script src="script.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
+    defer
+  ></script>
 </head>
 <body>
   <header>
@@ -25,9 +35,9 @@
         <label for="date">Lost/Date</label><br>
         <input type="text" id="date" name="date"><br>
         <label for="time">Time</label><br>
-        <input type="text" id="time" name="time"><br>s
+        <input type="text" id="time" name="time"><br>
         <label for="location">Location</label><br>
-        <input type="text" id="location" name="location" autocomplete="on"><br>
+        <div id="map"></div>
         <button type="button" onclick="finderSubmit()">Submit</button>
       </form>
     </section>
@@ -35,13 +45,21 @@
   <script>
   
     // For map
-    var map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8
-      });
-    }
+     (function(exports) {
+        "use strict";
+
+        function initMap() {
+          exports.map = new google.maps.Map(document.getElementById("map"), {
+            center: {
+              lat: -34.397,
+              lng: 150.644
+            },
+            zoom: 8
+          });
+        }
+
+        exports.initMap = initMap;
+      })((this.window = this.window || {}));
     
   </script>
 </body>
