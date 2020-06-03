@@ -345,6 +345,7 @@ app.get('/getDataFromDB', function (req, res){
   }); 
 }); 
 
+
 //Hondle a get request for search result
 app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   //read and parse request packet
