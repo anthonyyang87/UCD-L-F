@@ -31,6 +31,7 @@ main {
   text-algin: left;
   width: 80%;
   margin: auto;
+  padding: 20px;
 }
 
 #form {
