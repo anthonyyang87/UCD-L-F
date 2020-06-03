@@ -9,6 +9,15 @@
     body {
       background-color: #feebb1;
     }  
+    textarea{
+      background-color:#e5e5e5;
+      border: none;
+      width: 90%;
+    }
+    
+    #nextBtn {
+      background-color: #daab27;
+    }
   </style>
 	<script src="script.js"></script>
 </head>
@@ -34,11 +43,13 @@
           <option value="Safari"/>
         </datalist>
         <label for="description">Description</label><br>
-        <input type="text" id="description" name="description"><br>
+        <textarea id="description" name="description"></textarea><br>
         <label for="photoURL">Attach A Photo(Optional)</label><br>
         <input id="imgUpload" type="file" accept="image/*" name="photo" title=" "/>        
         <br>
-        <button type="button" id="nextBtn" onclick="finderNext()">Next</button>
+        <div id="btnRow">
+          <button type="button" class="btn" id="nextBtn" onclick="finderNext()">Next</button>
+        </div>
     </form>
     </section>
 
