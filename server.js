@@ -352,7 +352,18 @@ app.get('/getSearchResult', function(req, res){
   var category = data.category; 
   var location = data.location; 
   var date = data.date; 
-  var time = data.time
+  var time = data.time; 
+  
+  //construct command
+  cmd = "SELECT * FROM LostAndFoundTable WHERE category=? OR location=? OR data=? OR time=?"; 
+  lostDB.all(cmd, category, location, data, time, function(err, data){
+    if(err){
+      console.log("Database read error"); 
+    }else{
+      res.json(data); 
+      console.log(data); 
+    }
+  }); 
 }); 
 
 // Handle a POST request containing JSON
