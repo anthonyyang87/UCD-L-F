@@ -125,6 +125,6 @@ function sendGetRequest() {
   xhr.send();
 }
 
-function search(){
+function searchForResult(){
   window.location.href = "screen05.html"; 
 }
