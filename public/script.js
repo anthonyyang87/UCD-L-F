@@ -139,6 +139,8 @@ function search(){
   sessionStorage.setItem('date', date); 
   sessionStorage.setItem('time', time); 
   
+  window.location.href = "screen10.html";
+  
 }
 
 //loads search result in result page
