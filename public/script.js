@@ -125,6 +125,39 @@ function sendGetRequest() {
   xhr.send();
 }
 
+function search(){
+  
+  //reading from user input
+  
+  var category = document.getElementById('category').value; 
+  var location = document.getElementById('location').value; 
+	var date = document.getElementById('date').value; 
+	var time = document.getElementById('time').value; 
+  
+  sessionStorage.setItem("category", category); 
+  sessionStorage.setItem('location', location); 
+  sessionStorage.setItem('date', date); 
+  sessionStorage.setItem('time', time); 
+  
+}
+
+//loads search result in result page
+function loadResult(){
+  let xhr = new XMLHttpRequest; 
+  xhr.open("GET", "getResultFromDB"); 
+  
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  
+  xhr.onloadend = function(e){
+    var res = xhr.responseText; 
+    console.log(res); 
+  }
+  
+  //sending request to server
+  xhr.send(); 
+}
+
+//this function shows all the data stored in the DB
 function showDataStored(){
   let xhr = new XMLHttpRequest; 
   xhr.open("GET", "getDataFromDB"); 
