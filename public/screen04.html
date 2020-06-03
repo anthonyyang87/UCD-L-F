@@ -17,10 +17,13 @@
     }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <script
+  
+  /*
+  /*<script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
     defer
   ></script>
+  */
 </head>
 <body>
   <header>
@@ -37,13 +40,14 @@
         <label for="time">Time</label><br>
         <input type="text" id="time" name="time"><br>
         <label for="location">Location</label><br>
+        <input type="text" id="location" name="location"><br>
         <div id="map"></div>
         <button type="button" onclick="finderSubmit()">Submit</button>
       </form>
     </section>
   </main>
   <script>
-  
+    /*
     // For map
      (function(exports) {
         "use strict";
@@ -60,7 +64,7 @@
 
         exports.initMap = initMap;
       })((this.window = this.window || {}));
-    
+    */
   </script>
 </body>
 </html>
