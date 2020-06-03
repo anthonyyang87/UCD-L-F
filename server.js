@@ -341,9 +341,8 @@ app.use(bodyParser.json());
 app.post('/newItem', function (req, res) {
   console.log("Server received: ", req.body);
   // save the JSON string into database
-  let randomString = makeRandStr(8); 
-  let userData = JSON.stringify(req.body); 
-  res.send(userData); 
+  
+  //res.send(userData); 
   
   //parse received data and store into database
   
@@ -365,10 +364,12 @@ app.post('/newItem', function (req, res) {
   //run the insert command
   lostDB.run(cmd, function(err){
     if(err) {
-      console.log("Database Insert Error!")' '
+      console.log("Database Insert Error!");
     } else {
       var newId = this.lastID; 
       console.log("Item inserted with rowID: ", newId); 
+      
+      res.sendStatus(200); 
     }
   })
 });
