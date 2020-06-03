@@ -131,6 +131,11 @@ function showDataStored(){
   
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   
+  xhr.onloadend = function(e){
+    var res = xhr.responseText; 
+    console.log(res); 
+  }
   
-  
+  //sending request to server
+  xhr.send
 }

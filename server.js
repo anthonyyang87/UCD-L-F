@@ -332,7 +332,10 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + "/public/index.html");
 });
 
-
+//Handle a get request from browser getting data
+app.get('/getDataFromDB', function (req, res){
+  cmd = ""
+}); 
 
 
 // Handle a POST request containing JSON
