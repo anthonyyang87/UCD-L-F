@@ -12,7 +12,8 @@
     textarea{
       background-color:#e5e5e5;
       border: none;
-      width: 90%;
+      width: 100%;
+      font-size: 1.5em;
     }
     
     #nextBtn {
@@ -28,7 +29,7 @@
     </a>
   </header>
   <main>
-    <h1>Input the found item</h1>
+    <h1 id="formTitle">Input the found item</h1>
     <section id="form">
       <form>
         <label for="title">Title</label><br>
@@ -63,6 +64,12 @@
       </div>
     </section>
   </main>
+  
+  <script>
+    document.querySelector('.btn').onclick = () => {
+      window.location.href = '/screen04.html';
+    };
+  </script>
 	
 </body>
 </html>
