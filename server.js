@@ -339,8 +339,8 @@ app.get('/getDataFromDB', function (req, res){
     if(err){
       console.log("Database reading error..."); 
     } else{
-      res.json(data[0]); 
-      console.log(data[0]); 
+      res.json(data); 
+      console.log(data); 
     }
   }); 
 }); 
