@@ -5,7 +5,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const assets = require('./assets');
 const sqlite3 = require('sqlite3');  // we'll need this later
-
+const multer = require('multer');
+const fs = require('fs');
+const FormData = require("form-data");
 // and some new ones related to doing the login process
 const passport = require('passport');
 // There are other strategies, including Facebook and Spotify
@@ -15,6 +17,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 // is logged in
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
+
+const sql = require("sqlite3").verbose();
 
 //const request = require('request')
 
@@ -298,7 +302,8 @@ lostDB.get(cmd, function(err, val){
 
 //the function that creates database
 function createDB() {
-	const cmd = " CREATE TABLE LostAndFoundTable ()"; 
+	const cmd = " CREATE TABLE LostAndFoundTable (id INTEGER PRIMARY KEY, lostOrFound TEXT, title TEXT, category, \
+  description TEXT, TEXT, TEXT, TEXT, TEXT )"; 
 }
 
 
@@ -311,19 +316,6 @@ app.use(bodyParser.json());
 
 
 //here handles GET requests from client
-function handlePostcard(req, res, next){
-  //let url = "g"; 
-  let key = req.query.id; 
-  let cmd = "SELECT randomString, jsonString FROM PostCardTable WHERE randomString=?";
-  lostDB.all(cmd, key, function (err, data){
-    if (err){
-      console.log("Database reading error:", err.message); 
-    } else {
-      res.json(data[0]["jsonString"]); 
-      console.log(data[0]["jsonString"]); 
-    }
-  })
-}
 
 // Now construct the server pipeline
 // Special case for request with just the base URL

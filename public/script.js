@@ -1,44 +1,4 @@
 
-function next(){
-
-	/*
-	if (typeof(Storage) != "undefined") {
-		sessionStorage.setItem("LostOrFound", )
-	}
-	*/
-
-	//reading user input
-	var LostOrFound = document.getElementById('LostOrFound').value; 
-	var title = document.getElementById('title').value; 
-	var description = document.getElementById('description').value; 
-	var category = document.getElementById('category').value; 
-	var photoURL = document.getElementById('photoURL').value; 
-	var location = document.getElementById('location').value; 
-	var date = document.getElementById('date').value; 
-	var time = document.getElementById('time').value; 
-
-	
-	console.log("Input value from user input:", LostOrFound, title, description, category, photoURL, location, date, time); 
-	
-	//constructing json object
-	var jsonObj = {
-		"LostOrFound": LostOrFound, 
-		"title": title, 
-		"description": description, 
-		"category": category,
-		"photoURL": photoURL, 
-		"location": location, 
-		"date": date, 
-		"time": time
-
-	}
-
-	console.log("Json object: ", jsonObj); 
-
-
-}
-
-
 function finderNext(){
   
   //read from user input
@@ -86,8 +46,7 @@ function finderNext(){
     // actually send the request
     xhr.send(formData);
   
-  //uploadImage(photoData); 
-  //window.location.href = "screen04.html";
+  window.location.href = "screen04.html";
   
 }
 
@@ -147,64 +106,6 @@ function sendToServer(data){
   xmlhttp.send(JSON.stringify(data));
 }
 
-
-function uploadImage(data){
-  //store in formData
-  const formData = new FormData(); 
-  console.log("Data Type: ", typeof data); 
-  console.log("Photo Data: ", data); 
-  var selectedFile = data;  
-  formData.append('newImage', selectedFile, selectedFile.name); 
-  //formData.append('newImage', selectedFile); 
-  
-  //build http request data structure
-  const xhr = new XMLHttpRequest(); 
-  xhr.open("POST", "/upload", true); 
-  xhr.onloadend = function(e) {
-        // Get the server's response to the upload
-        console.log(xhr.responseText);
-        let newImage = document.querySelector("#cardImg");
-        newImage.src = "../images/"+selectedFile.name;
-        //console.log("Filename: ", selectedFile.name); 
-        newImage.style.display = 'block';
-        document.querySelector('.image').classList.remove('upload');
-      
-        //Here trigger upload to media storage
-        sendGetRequest(); 
-    }
-  
-    // actually send the request
-    xhr.send(formData);
-}
-
-function uploadImage2(){
-  //store in formData
-  var selectedFile = document.getElementById("imgUpload").files[0]; 
-  const formData = new FormData(); 
-  //var selectedFile = data;  
-  formData.append('newImage', selectedFile, selectedFile.name); 
-  //formData.append('newImage', selectedFile); 
-  
-  //build http request data structure
-  const xhr = new XMLHttpRequest(); 
-  xhr.open("POST", "/upload", true); 
-  xhr.onloadend = function(e) {
-        // Get the server's response to the upload
-        console.log(xhr.responseText);
-        let newImage = document.querySelector("#cardImg");
-        newImage.src = "../images/"+selectedFile.name;
-        //console.log("Filename: ", selectedFile.name); 
-        newImage.style.display = 'block';
-        document.querySelector('.image').classList.remove('upload');
-      
-        //Here trigger upload to media storage
-        sendGetRequest(); 
-    }
-  
-    // actually send the request
-    xhr.send(formData);
-}
-
 // sends an AJAX request asking the server 
 function sendGetRequest() {
   let xhr = new XMLHttpRequest;
@@ -223,16 +124,3 @@ function sendGetRequest() {
   // Actually send request to server
   xhr.send();
 }
-
-//THE FOLLOWING TWO FUNCTIONS ARE USED FOR MEDIA STORAGE
-/*
-function showMsg(elmtId, returnedText, otherOne) {
-        let msg = document.getElementById(elmtId);
-        msg.textContent = msg.textContent.trim()+returnedText;
-        msg.className = "visible";
-        
-        // you can only push the button once
-        let uploadButton = document.getElementById("sendRequest");
-        uploadButton.removeEventListener("click", sendGetRequest);
-}
-*/
