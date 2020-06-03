@@ -162,8 +162,8 @@ function loadResult(){
   
   //send to server
   let xhr = new XMLHttpRequest; 
-  var url = JSON.stringify()
-  xhr.open("GET", "getSearchResult");
+  var url = JSON.stringify(jsonObj); 
+  xhr.open("GET", url);
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   
   xhr.onloadend = function(e){
@@ -172,7 +172,7 @@ function loadResult(){
   }
   
   //sending request to server
-  xhr.send(JSON.stringify(jsonObj)); 
+  xhr.send(); 
 }
 
 //this function shows all the data stored in the DB
