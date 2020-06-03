@@ -356,7 +356,9 @@ app.post('/newItem', function (req, res) {
       location = data.location; 
   
   var photoURL = "http://ecs162.org:3000/images/antyang/" + data.photoURL; 
-      
+  
+  //for testing
+  console.log("Data to be inserted: ", title, description, photoURL); 
   //save to database
   cmd = "INSERT INTO LostAndFoundTable (LostOrFound, title, category, description, \
         photoURL, time, date, location) VALUES (?,?,?,?,?,?,?,?)"
