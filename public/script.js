@@ -124,3 +124,7 @@ function sendGetRequest() {
   // Actually send request to server
   xhr.send();
 }
+
+function showResult(){
+  window.location.href = "screen05.html"; 
+}
