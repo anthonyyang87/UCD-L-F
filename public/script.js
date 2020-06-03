@@ -145,6 +145,17 @@ function search(){
 
 //loads search result in result page
 function loadResult(){
+  
+  //retrieve search input from session storage
+  var category = sessionStorage.getItem('category'); 
+  var location = sessionStorage.getItem('location'); 
+  var date  = sessionStorage.getItem('date'); 
+  var time = sessionStorage.getItem('time'); 
+  
+  //construct json object
+  var jsonObj = {
+    cateo
+  }
   let xhr = new XMLHttpRequest; 
   xhr.open("GET", "getResultFromDB"); 
   
