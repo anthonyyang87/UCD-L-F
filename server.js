@@ -303,7 +303,16 @@ lostDB.get(cmd, function(err, val){
 //the function that creates database
 function createDB() {
 	const cmd = " CREATE TABLE LostAndFoundTable (id INTEGER PRIMARY KEY, lostOrFound TEXT, title TEXT, category, \
-  description TEXT, TEXT, TEXT, TEXT, TEXT )"; 
+  description TEXT, photoURL TEXT, date TEXT, time TEXT, location TEXT )"; 
+  
+  lostDB.run(cmd, function(err, val){
+    if(err){
+      console.log("Database Creation Error: ", err); 
+    } else{
+      console.log("Database created!"); 
+    }
+  }); 
+  
 }
 
 
