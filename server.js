@@ -348,11 +348,11 @@ app.get('/getDataFromDB', function (req, res){
 //Hondle a get request for search result
 app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   //read and parse request packet
-  var data = req.originalUrl; 
-  var category = data.category; 
-  var location = data.location; 
-  var date = data.date; 
-  var time = data.time; 
+  var search = req.query.id; 
+  var category = search.category; 
+  var location = search.location; 
+  var date = search.date; 
+  var time = search.time; 
   
   //for testing
   console.log("Search input: ", category, location, date, time); 
