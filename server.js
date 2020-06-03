@@ -349,7 +349,7 @@ app.post('/newItem', function (req, res) {
   
   var data = req.body; 
   var title = data.title, 
-      lostOrFound = data.LostOrFound, 
+      LostOrFound = data.LostOrFound, 
       category = data.category, 
       description = data.description, 
       time = data.time, 
@@ -359,7 +359,18 @@ app.post('/newItem', function (req, res) {
   var photoURL = "http://ecs162.org:3000/images/antyang/" + data.photoURL; 
       
   //save to database
-  cmd = "INSERT INTO LostAndFoundTable ()"
+  cmd = "INSERT INTO LostAndFoundTable (LostOrFound, title, category, description, \
+        photoURL, time, date, location) VALUES (?,?,?,?,?,?,?,?)"
+  
+  //run the insert command
+  lostDB.run(cmd, function(err){
+    if(err) {
+      console.log("Database Insert Error!")' '
+    } else {
+      var newId = this.lastID; 
+      console.log("Item inserted with rowID: ", newId); 
+    }
+  })
 });
 
 let storage = multer.diskStorage({
