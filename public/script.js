@@ -162,6 +162,7 @@ function loadResult(){
   
   //send to server
   let xhr = new XMLHttpRequest; 
+  var url = JSON.stringify()
   xhr.open("GET", "getSearchResult");
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   
