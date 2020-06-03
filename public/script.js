@@ -175,7 +175,7 @@ function loadResult(){
 }
 
 //this function shows all the data stored in the DB
-function showDataStored(){
+function showAllDataStored(){
   let xhr = new XMLHttpRequest; 
   xhr.open("GET", "getDataFromDB"); 
   

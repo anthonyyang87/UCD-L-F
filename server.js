@@ -355,8 +355,9 @@ app.get('/getSearchResult', function(req, res){
   var time = data.time; 
   
   //construct command
-  cmd = "SELECT * FROM LostAndFoundTable WHERE category=? OR location=? OR data=? OR time=?"; 
-  lostDB.all(cmd, category, location, data, time, function(err, data){
+  //cmd = "SELECT * FROM LostAndFoundTable WHERE category=? OR location=? OR date=? OR time=?";
+  cmd = "SELECT * FROM LostAndFoundTable WHERE category='electronics'"
+  lostDB.all(cmd, function(err, data){
     if(err){
       console.log("Database read error"); 
     }else{
