@@ -334,7 +334,7 @@ app.get("/", function (request, response) {
 
 //Handle a get request from browser getting data
 app.get('/getDataFromDB', function (req, res){
-  cmd = "SELECT * FROM LostAndFoundTable"; 
+  cmd = "SELECT * FROM LostAndFoundTable";  
   lostDB.all(cmd, function (err, data){
     if(err){
       console.log("Database reading error..."); 
@@ -375,7 +375,7 @@ app.post('/newItem', function (req, res) {
         photoURL, time, date, location) VALUES (?,?,?,?,?,?,?,?)"
   
   //run the insert command
-  lostDB.run(cmd, function(err){
+  lostDB.run(cmd, LostOrFound, title, category, description, photoURL, time, date, location, function(err){
     if(err) {
       console.log("Database Insert Error!");
     } else {
