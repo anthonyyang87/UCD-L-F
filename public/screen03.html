@@ -38,7 +38,7 @@
         <label for="photoURL">Attach A Photo(Optional)</label><br>
         <input id="imgUpload" type="file" accept="image/*" name="photo" title=" "/>        
         <br>
-        <button type="button" id="nextBtn">Next</button>
+        <button type="button" id="nextBtn" onclick="finderNext()">Next</button>
     </form>
     </section>
 
@@ -53,11 +53,5 @@
     </section>
   </main>
 	
-  
-  <script>
-    document.querySelector('#nextBtn').addEventListener('click', () => {
-      window.location.href = 'screen04.html';
-    });
-  </script>
 </body>
 </html>

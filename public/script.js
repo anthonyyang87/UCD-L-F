@@ -42,7 +42,8 @@ function next(){
 function finderNext(){
   
   //read from user input
-  var LostOrFound = document.getElementById('LostOrFound').value; 
+  //var LostOrFound = document.getElementById('LostOrFound').value; 
+  var LostOrFound = "Lost"; 
 	var title = document.getElementById('title').value; 
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
@@ -79,7 +80,7 @@ function finderNext(){
         //Here trigger upload to media storage
         sendGetRequest(); 
         
-        window.location.href = "screen04.html";
+        //window.location.href = "screen04.html";
     }
   
     // actually send the request
