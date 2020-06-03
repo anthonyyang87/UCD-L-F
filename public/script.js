@@ -137,5 +137,5 @@ function showDataStored(){
   }
   
   //sending request to server
-  xhr.send
+  xhr.send(); 
 }

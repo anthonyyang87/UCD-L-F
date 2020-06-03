@@ -334,7 +334,15 @@ app.get("/", function (request, response) {
 
 //Handle a get request from browser getting data
 app.get('/getDataFromDB', function (req, res){
-  cmd = ""
+  cmd = "SELECT * FROM LostAndFoundTable"; 
+  lostDB.all(cmd, function (err, data){
+    if(err){
+      console.log("Database reading error..."); 
+    } else{
+      res.json(data[0]); 
+      console.log(data[0]); 
+    }
+  }); 
 }); 
 
 
