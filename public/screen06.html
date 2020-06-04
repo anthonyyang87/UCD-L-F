@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UC Davis Lost and Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #b3c1d1;
+    }  
+    textarea{
+      background-color:#e5e5e5;
+      border: none;
+      width: 100%;
+      font-size: 1.5em;
+    }
+    
+    #nextBtn {
+      background-color: #daab27;
+    }
+  </style>
+	<script src="script.js"></script>
+</head>
+<body>
+  <header>
+    <a href="/screen02.html">
+      <img id="logo" src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FLogo.png?v=1591015746007">
+    </a>
+  </header>
+  <main>
+    <h1 id="formTitle">Input the lost item</h1>
+    <section id="form">
+      <form>
+        <label for="title">Title</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="category">Choose the category that the item belongs to.</label><br>
+        <input list="categories" id="category" name="category"><br>
+        <datalist id="categories">
+          <option value="Electronics">
+          <option value="Wallet">
+          <option value="Accessories">
+          <option value="Books">
+          <option value="Keys">
+          <option value="Bike/Scooter">
+          <option value="Others">
+        </datalist>
+        
+        <label for="description">Description</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <label for="photoURL">Attach A Photo(Optional)</label><br>
+        <input id="imgUpload" type="file" accept="image/*" name="photo" title=" "/>        
+        <br>
+        <div id="btnRow">
+          <button type="button" class="btn" id="nextBtn" onclick="finderNext()">Next</button>
+        </div>
+    </form>
+    </section>
+
+    <section id="search">
+      <h1>Or search for existing requests</h1>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button><br>
+          <button type="button" class="btn" onclick="redirect()">Search</button>
+        </form>
+      </div>
+    </section>
+    
+    <script>
+      function redirect(){
+        window.location.href = "screen08.html"; 
+      }
+    </script>
+  </main>
+</body>
+</html>
