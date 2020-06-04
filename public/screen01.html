@@ -20,9 +20,12 @@
         display: flex;
         align-items: center;
       }
+      
+      main div {
+        width: 50%;
+      }
 
       #shieldsImg {
-        width: 50%;
         height: 100%;
         background-image: url(https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FShields.jpg?v=1591018164366);
         background-size: cover;
@@ -63,6 +66,7 @@
       .button figure img {
         border-radius: 100%;
         width: 100%;
+        margin:0 auto;
       }
 
       .button .text {
@@ -79,10 +83,18 @@
         font-weight: bolder;
       }
       
+      #logo {
+        width: 80%;
+      }
+      
       
       @media (max-width: 600px) {
         main {
           flex-direction: column;
+        }
+        
+        main div {
+          width: 100%;
         }
       }
     </style>
