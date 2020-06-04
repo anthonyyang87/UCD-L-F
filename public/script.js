@@ -162,7 +162,7 @@ function loadResult(){
   
   //send to server
   let xhr = new XMLHttpRequest; 
-  var url = "https://cool-ant-eth.glitch.me/screen10.html?id=" + JSON.stringify(jsonObj); 
+  var url = "cool-ant-eth.glitch.me/screen10.html?id=" + JSON.stringify(jsonObj); 
   console.log(url); 
   xhr.open("GET", url);
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
