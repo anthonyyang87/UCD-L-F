@@ -352,13 +352,17 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   var search = JSON.parse(req.query.id); 
   var category = search.category; 
   var location = search.location; 
-  var date = search.date; 
-  var time = search.time; 
+  //var date = search.date; 
+  //var time = search.time;
+  var startDate = search.startDate; 
+  var endDate = search.endDate; 
+  var startTime = search.startTime; 
+  var endTime = search.endTime; 
   
   //for testing
   console.log("Search input: ", search); 
   //construct command
-  cmd = "SELECT * FROM LostAndFoundTable WHERE category=? OR location=? OR date=? OR time=?";
+  cmd = "SELECT * FROM LostAndFoundTable WHERE date >= ? and date <= ? category=? OR location=? ";
   //cmd = "SELECT * FROM LostAndFoundTable WHERE category='Electronics'"
   lostDB.all(cmd, category, location, date, time, function(err, data){
     if(err){

@@ -165,13 +165,16 @@ function loadResult(){
   var startDate = sessionStorage.getItem('startDate'); 
   var endDate = sessionStorage.getItem('endDate'); 
   var startTime = sessionStorage.getItem('startTime'); 
-  var endDate = sessionStorage
+  var endTime = sessionStorage.getItem('endTime'); 
+  
   //construct json object
   var jsonObj = {
     category: category, 
     location: location, 
-    date: date, 
-    time: time
+    startDate: startDate, 
+    endDate: endDate, 
+    startTime: startTime, 
+    endTime: endTime
   }; 
   
   //send to server
