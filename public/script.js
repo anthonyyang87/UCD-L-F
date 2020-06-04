@@ -40,13 +40,13 @@ function finderNext(){
         //Here trigger upload to media storage
         sendGetRequest(); 
         
-        //window.location.href = "screen04.html";
+        window.location.href = "screen04.html";
     }
   
     // actually send the request
     xhr.send(formData);
   
-  window.location.href = "screen04.html";
+  //window.location.href = "screen04.html";
   
 }
 
