@@ -34,15 +34,18 @@
       <form>
         <label for="title">Title</label><br>
         <input type="text" id="title" name="title"><br>
-        <label for="category">Category</label><br>
-        <input list="category" id="category" name="category"><br>
-        <datalist id="category">
-          <option value="Edge">
-          <option value="Firefox">
-          <option value="Chrome">
-          <option value="Opera">
-          <option value="Safari">
+        <label for="category">Choose the category that the item belongs to.</label><br>
+        <input list="categories" id="category" name="category"><br>
+        <datalist id="categories">
+          <option value="Electronics">
+          <option value="Wallet">
+          <option value="Accessories">
+          <option value="Books">
+          <option value="Keys">
+          <option value="Bike/Scooter">
+          <option value="Others">
         </datalist>
+        
         <label for="description">Description</label><br>
         <textarea id="description" name="description"></textarea><br>
         <label for="photoURL">Attach A Photo(Optional)</label><br>
