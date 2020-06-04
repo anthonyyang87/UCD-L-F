@@ -349,18 +349,18 @@ app.get('/getDataFromDB', function (req, res){
 //Hondle a get request for search result
 app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   //read and parse request packet
-  var search = req.query.id; 
+  var search = JSON.parse(req.query.id); 
   var category = search.category; 
   var location = search.location; 
   var date = search.date; 
   var time = search.time; 
   
   //for testing
-  console.log("Search input: ", category, location, date, time); 
+  console.log("Search input: ", search); 
   //construct command
-  //cmd = "SELECT * FROM LostAndFoundTable WHERE category=? OR location=? OR date=? OR time=?";
-  cmd = "SELECT * FROM LostAndFoundTable WHERE category='Electronics'"
-  lostDB.all(cmd, function(err, data){
+  cmd = "SELECT * FROM LostAndFoundTable WHERE category=? OR location=? OR date=? OR time=?";
+  //cmd = "SELECT * FROM LostAndFoundTable WHERE category='Electronics'"
+  lostDB.all(cmd, category, location, date, time, function(err, data){
     if(err){
       console.log("Database read error"); 
     }else{
