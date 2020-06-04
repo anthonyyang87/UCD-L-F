@@ -131,13 +131,23 @@ function search(){
   
   var category = document.getElementById('category').value; 
   var location = document.getElementById('location').value; 
-	var date = document.getElementById('date').value; 
-	var time = document.getElementById('time').value; 
+	//var date = document.getElementById('date').value; 
+	//var time = document.getElementById('time').value; 
+  
+  var startDate = document.getElementById('startDate').value; 
+  var endDate = document.getElementById('endDate').value; 
+  var startTime = document.getElementById('startTime').value; 
+  var endTime = document.getElementById('endTime').value; 
   
   sessionStorage.setItem("category", category); 
   sessionStorage.setItem('location', location); 
-  sessionStorage.setItem('date', date); 
-  sessionStorage.setItem('time', time); 
+  //sessionStorage.setItem('date', date); 
+  //sessionStorage.setItem('time', time);
+  
+  sessionStorage.setItem('startDate', startDate); 
+  sessionStorage.setItem('endDate', endDate); 
+  sessionStorage.setItem('startTime', startTime); 
+  sessionStorage.setItem('endTime', endTime); 
   
   window.location.href = "screen10.html";
   
@@ -149,9 +159,13 @@ function loadResult(){
   //retrieve search input from session storage
   var category = sessionStorage.getItem('category'); 
   var location = sessionStorage.getItem('location'); 
-  var date  = sessionStorage.getItem('date'); 
-  var time = sessionStorage.getItem('time'); 
+  //var date  = sessionStorage.getItem('date'); 
+  //var time = sessionStorage.getItem('time'); 
   
+  var startDate = sessionStorage.getItem('startDate'); 
+  var endDate = sessionStorage.getItem('endDate'); 
+  var startTime = sessionStorage.getItem('startTime'); 
+  var endDate = sessionStorage
   //construct json object
   var jsonObj = {
     category: category, 
