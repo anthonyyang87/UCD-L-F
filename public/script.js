@@ -3,6 +3,89 @@ function finderNext(){
   
   //read from user input
   //var LostOrFound = document.getElementById('LostOrFound').value; 
+  var LostOrFound = "Found"; 
+	var title = document.getElementById('title').value; 
+	var description = document.getElementById('description').value; 
+	var category = document.getElementById('category').value; 
+	var photoURL = document.getElementById('imgUpload').files[0].name; 
+  var photoData = document.getElementById('imgUpload').files[0]; 
+  
+  //store in session storage
+  sessionStorage.setItem('LostOrFound', LostOrFound); 
+  sessionStorage.setItem('title', title); 
+  sessionStorage.setItem('description', description); 
+  sessionStorage.setItem('category', category); 
+  sessionStorage.setItem('photoURL', photoURL); 
+  sessionStorage.setItem('photoData', photoData); 
+  
+  //experiment handle upload photo here
+  var selectedFile = document.getElementById('imgUpload').files[0];
+  const formData = new FormData(); 
+ 
+  formData.append('newImage', selectedFile, selectedFile.name); 
+  //formData.append('newImage', selectedFile); 
+  
+  //build http request data structure
+  const xhr = new XMLHttpRequest(); 
+  xhr.open("POST", "/upload", true); 
+  xhr.onloadend = function(e) {
+        // Get the server's response to the upload
+        console.log(xhr.responseText);
+      
+        //Here trigger upload to media storage
+        sendGetRequest(); 
+        
+        //redirect to next page
+        window.location.href = "screen04.html";
+    }
+  
+    // actually send the request
+    xhr.send(formData);
+  
+  //window.location.href = "screen04.html";
+  
+}
+
+function finderSubmit(){
+  var location = document.getElementById('location').value; 
+	var date = document.getElementById('date').value; 
+	var time = document.getElementById('time').value; 
+  
+
+  //grab saved values in previous page
+  var LostOrFound = sessionStorage.getItem('LostOrFound'); 
+  var title = sessionStorage.getItem('title'); 
+  var description = sessionStorage.getItem('description'); 
+  var category = sessionStorage.getItem('category'); 
+  var photoURL = sessionStorage.getItem('photoURL'); 
+  var photoData = sessionStorage.getItem('photoData'); 
+  
+  //constructing json object
+	var jsonObj = {
+		"LostOrFound": LostOrFound, 
+		"title": title, 
+		"description": description, 
+		"category": category,
+		"photoURL": photoURL, 
+		"location": location, 
+		"date": date, 
+		"time": time
+
+	}
+  
+  //for testing if user input is collected properly
+  console.log("Json object: ", jsonObj); 
+  
+  //now send user data to server
+  sendToServer(jsonObj); 
+  
+  //uploading image to server
+  //uploadImage(photoData); 
+}
+
+function seekerNext(){
+  //read from user input
+  //var LostOrFound = document.getElementById('LostOrFound').value; 
   var LostOrFound = "Lost"; 
 	var title = document.getElementById('title').value; 
 	var description = document.getElementById('description').value; 
@@ -31,16 +114,12 @@ function finderNext(){
   xhr.onloadend = function(e) {
         // Get the server's response to the upload
         console.log(xhr.responseText);
-        //let newImage = document.querySelector("#cardImg");
-        //newImage.src = "../images/"+selectedFile.name;
-        //console.log("Filename: ", selectedFile.name); 
-        //newImage.style.display = 'block';
-        //document.querySelector('.image').classList.remove('upload');
       
         //Here trigger upload to media storage
         sendGetRequest(); 
         
-        window.location.href = "screen04.html";
+        //redirect to next page
+        window.location.href = "screen07.html";
     }
   
     // actually send the request
@@ -50,7 +129,8 @@ function finderNext(){
   
 }
 
-function finderSubmit(){
+//following two functions for seeker
+function seekerSubmit(){
   var location = document.getElementById('location').value; 
 	var date = document.getElementById('date').value; 
 	var time = document.getElementById('time').value; 
@@ -150,6 +230,34 @@ function search(){
   sessionStorage.setItem('endTime', endTime); 
   
   window.location.href = "screen10.html";
+  
+}
+
+function search2(){
+  
+  //reading from user input
+  
+  var category = document.getElementById('category').value; 
+  var location = document.getElementById('location').value; 
+	//var date = document.getElementById('date').value; 
+	//var time = document.getElementById('time').value; 
+  
+  var startDate = document.getElementById('startDate').value; 
+  var endDate = document.getElementById('endDate').value; 
+  var startTime = document.getElementById('startTime').value; 
+  var endTime = document.getElementById('endTime').value; 
+  
+  sessionStorage.setItem("category", category); 
+  sessionStorage.setItem('location', location); 
+  //sessionStorage.setItem('date', date); 
+  //sessionStorage.setItem('time', time);
+  
+  sessionStorage.setItem('startDate', startDate); 
+  sessionStorage.setItem('endDate', endDate); 
+  sessionStorage.setItem('startTime', startTime); 
+  sessionStorage.setItem('endTime', endTime); 
+  
+  window.location.href = "screen09.html";
   
 }
 
