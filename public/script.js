@@ -2,17 +2,18 @@
 function finderNext(){
   
   //read from user input
-  
- 
   var LostOrFound = "Found"; 
 	var title = document.getElementById('title').value; 
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
+  var photoURL = ""; 
   if(title == "" || description == "" || category == ""){
     alert("PLease fill all required fields."); 
     return false; 
   }
-  photoURL = document.getElementById('photoURL').value; 
+  if(document.getElementById('imgUpload') != undefined){
+    photoURL = document.getElementById('imgUpload').files[0].name; 
+  } 
   //store in session storage
   
   sessionStorage.setItem('LostOrFound', LostOrFound); 
