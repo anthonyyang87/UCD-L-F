@@ -2,21 +2,27 @@
 function finderNext(){
   
   //read from user input
-  //var LostOrFound = document.getElementById('LostOrFound').value; 
-  var LostOrFound = "Found"; 
-	var title = document.getElementById('title').value; 
-	var description = document.getElementById('description').value; 
-	var category = document.getElementById('category').value; 
-	var photoURL = document.getElementById('imgUpload').files[0].name; 
-  var photoData = document.getElementById('imgUpload').files[0]; 
-  
+  var LostOrFound = "", 
+      title = "", 
+      description = "", 
+      category = "", 
+      photoURL = ""; 
+  try{
+    LostOrFound = "Found"; 
+	  title = document.getElementById('title').value; 
+	  description = document.getElementById('description').value; 
+	  category = document.getElementById('category').value; 
+  }catch(err){
+    alert("There are required fields left empty."); 
+  }
+  photoURL = document.getElementById('imgUpload').files[0].name; 
   //store in session storage
+  
   sessionStorage.setItem('LostOrFound', LostOrFound); 
   sessionStorage.setItem('title', title); 
   sessionStorage.setItem('description', description); 
   sessionStorage.setItem('category', category); 
   sessionStorage.setItem('photoURL', photoURL); 
-  sessionStorage.setItem('photoData', photoData); 
   
   //experiment handle upload photo here
   var selectedFile = document.getElementById('imgUpload').files[0];
@@ -47,11 +53,16 @@ function finderNext(){
 }
 
 function finderSubmit(){
+  
+  var location = "", 
+      date = "", 
+      time = ""; 
+  
   var location = document.getElementById('location').value; 
 	var date = document.getElementById('date').value; 
 	var time = document.getElementById('time').value; 
   
-
+  
   //grab saved values in previous page
   var LostOrFound = sessionStorage.getItem('LostOrFound'); 
   var title = sessionStorage.getItem('title'); 
