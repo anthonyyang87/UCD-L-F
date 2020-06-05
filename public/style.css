@@ -90,3 +90,19 @@ main {
 }
 
 /* Search */
+#search {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+.searchBtn {
+  widht: 100%;
+  height: 50px;
+  background-color:white;
+}
+.searchBtn img{
+  height: 100%;
+  width: 20px;
+}
+
