@@ -34,16 +34,19 @@ main {
 #formTitle {
   font-weight: bolder;
   text-algin: left;
-  width: 80%;
+  width: 90%;
   margin: auto;
-  padding: 20px;
 }
 
 #form {
   background-color: white;
-  width: 80%;
-  margin: auto;
-  padding: 20px;
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px 0;
+}
+
+#form form {
+  margin: 20px;
 }
 
 #form label {
@@ -79,7 +82,7 @@ main {
   display: flex;
   flex-direction: row-reverse;
   margin: auto;
-  margin-top: 2vw;
+  margin: 2vw 0;
 }
 
 .btn {
@@ -95,10 +98,8 @@ main {
 
 /* Search */
 #search {
-  width: 80%;
-  margin: auto;
-  padding: 20px;
-  background-color: white;
+  width: 90%;
+  margin: 20px auto;
 }
 
 .searchBtn div{

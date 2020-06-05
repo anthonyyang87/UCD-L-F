@@ -15,6 +15,7 @@
        * element that contains the map. */
     #map {
       height: 300px;
+      background-color: #e5e5e5;
     }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -42,13 +43,22 @@
         <input type="time" id="time" name="time"><br>
         <label for="location">Location</label><br>
 <!--         <input type="text" id="location" name="location"><br> -->
+        <br>
         <div id="map"></div>
         <div id="btnRow">
           <button type="button" class="btn" onclick="finderSubmit()">Submit</button>       
         </div>                
       </form>
     </section>
-    <button type="button" onclick="search()">Search</button>
+    
+    <h1>Or search for existing requests</h1>
+    <section id="search">
+      <a href="/screen05.html" class="searchBtn">
+          <div>
+            <img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2Fsearch-solid.svg?v=1591018108417" />
+          </div>
+      </a>
+    </section>
   </main>
   <script>
     // For map
