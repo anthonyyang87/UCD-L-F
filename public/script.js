@@ -2,22 +2,17 @@
 function finderNext(){
   
   //read from user input
-  var LostOrFound, 
-      title, 
-      description, 
-      category, 
-      photoURL = "";
   
-  //alert if any required fields are left empty
-  try{
-    LostOrFound = "Found"; 
-	  title = document.getElementById('title').value; 
-	  description = document.getElementById('description').value; 
-	  category = document.getElementById('category').value; 
-  }catch(err){
-    alert("There are required field(s) left empty."); 
+ 
+  var LostOrFound = "Found"; 
+	var title = document.getElementById('title').value; 
+	var description = document.getElementById('description').value; 
+	var category = document.getElementById('category').value; 
+  if(title == "" || description == "" || category == ""){
+    alert("PLease fill all required fields."); 
+    return false; 
   }
-
+  photoURL = document.getElementById('photoURL').value; 
   //store in session storage
   
   sessionStorage.setItem('LostOrFound', LostOrFound); 
@@ -61,9 +56,11 @@ function finderNext(){
 
 function finderSubmit(){
   
+  /*
   var location = "", 
       date = "", 
-      time = ""; 
+      time = "";
+      */
   try{
     var location = document.getElementById('location').value; 
 	  var date = document.getElementById('date').value; 
