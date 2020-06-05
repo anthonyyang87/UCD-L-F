@@ -64,12 +64,21 @@ function finderSubmit(){
   
   //reading inputs
   //var location = document.getElementById('location').value; 
-  var location = "Somewhere on the planet"; 
+  //var location = "Somewhere on the planet"; 
+  var location; 
+  
+  //this is just for letting it work before google API works
+  try{
+    location = document.getElementById('location').value; 
+  }catch(err){
+    location = ""; 
+  }
+  
 	var date = document.getElementById('date').value; 
 	var time = document.getElementById('time').value; 
   
-  //catching if there are empty fields
-  if(location == "" || date == "" || time == ""){
+  //catching if there are empty fields FIX LOCATION LATER
+  if(date == "" || time == ""){
     alert("Please Fill All Required Field."); 
     return false; 
   }
