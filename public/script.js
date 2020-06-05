@@ -53,11 +53,7 @@ function finderNext(){
     } else {
         //redirect to next page
         window.location.href = "screen04.html";
-    }
-
-  
-  //window.location.href = "screen04.html";
-  
+    }  
 }
 
 function finderSubmit(){
@@ -116,48 +112,58 @@ function finderSubmit(){
 
 function seekerNext(){
   //read from user input
-  //var LostOrFound = document.getElementById('LostOrFound').value; 
-  var LostOrFound = "Lost"; 
+  var LostOrFound = "Found"; 
 	var title = document.getElementById('title').value; 
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
-	var photoURL = document.getElementById('imgUpload').files[0].name; 
-  var photoData = document.getElementById('imgUpload').files[0]; 
+  var photoURL = ""; 
+  if(title == "" || description == "" || category == ""){
+    alert("PLease fill all required fields."); 
+    return false; 
+  }
   
+  //optional photo upload
+  try{
+    photoURL = document.getElementById('imgUpload').files[0].name; 
+  } catch(err){
+    photoURL = ""; 
+  }
+
   //store in session storage
+  
   sessionStorage.setItem('LostOrFound', LostOrFound); 
   sessionStorage.setItem('title', title); 
   sessionStorage.setItem('description', description); 
   sessionStorage.setItem('category', category); 
   sessionStorage.setItem('photoURL', photoURL); 
-  sessionStorage.setItem('photoData', photoData); 
   
   //experiment handle upload photo here
-  var selectedFile = document.getElementById('imgUpload').files[0];
-  const formData = new FormData(); 
- 
-  formData.append('newImage', selectedFile, selectedFile.name); 
-  //formData.append('newImage', selectedFile); 
-  
-  //build http request data structure
-  const xhr = new XMLHttpRequest(); 
-  xhr.open("POST", "/upload", true); 
-  xhr.onloadend = function(e) {
-        // Get the server's response to the upload
-        console.log(xhr.responseText);
-      
-        //Here trigger upload to media storage
-        sendGetRequest(); 
-        
+  if(photoURL != ""){
+    var selectedFile = document.getElementById('imgUpload').files[0];
+    const formData = new FormData(); 
+    formData.append('newImage', selectedFile, selectedFile.name); 
+    //formData.append('newImage', selectedFile); 
+
+    //build http request data structure
+    const xhr = new XMLHttpRequest(); 
+    xhr.open("POST", "/upload", true); 
+    xhr.onloadend = function(e) {
+          // Get the server's response to the upload
+          console.log(xhr.responseText);
+
+          //Here trigger upload to media storage
+          sendGetRequest(); 
+
+          //redirect to next page
+          window.location.href = "screen07.html";
+      }
+
+      // actually send the request
+      xhr.send(formData);
+    } else {
         //redirect to next page
-        window.location.href = "screen07.html";
-    }
-  
-    // actually send the request
-    xhr.send(formData);
-  
-  //window.location.href = "screen04.html";
-  
+        window.location.href = "screen04.html";
+    }  
 }
 
 //following two functions for seeker
