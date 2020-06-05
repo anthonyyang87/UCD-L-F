@@ -102,6 +102,7 @@ main {
   background-color:white;
 }
 .searchBtn img{
-  height: 70px;
+  height: 100%;
+  width: 30px;
 }
 
