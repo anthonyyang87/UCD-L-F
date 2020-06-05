@@ -112,7 +112,7 @@ function finderSubmit(){
 
 function seekerNext(){
   //read from user input
-  var LostOrFound = "Found"; 
+  var LostOrFound = "Lost"; 
 	var title = document.getElementById('title').value; 
 	var description = document.getElementById('description').value; 
 	var category = document.getElementById('category').value; 
@@ -162,17 +162,34 @@ function seekerNext(){
       xhr.send(formData);
     } else {
         //redirect to next page
-        window.location.href = "screen04.html";
+        window.location.href = "screen07.html";
     }  
 }
 
 //following two functions for seeker
 function seekerSubmit(){
-  var location = document.getElementById('location').value; 
+  
+  //reading inputs
+  //var location = document.getElementById('location').value; 
+  //var location = "Somewhere on the planet"; 
+  var location; 
+  
+  //this is just for letting it work before google API works
+  try{
+    location = document.getElementById('location').value; 
+  }catch(err){
+    location = ""; 
+  }
+  
 	var date = document.getElementById('date').value; 
 	var time = document.getElementById('time').value; 
   
-
+  //catching if there are empty fields FIX LOCATION LATER
+  if(date == "" || time == ""){
+    alert("Please Fill All Required Field."); 
+    return false; 
+  }
+  
   //grab saved values in previous page
   var LostOrFound = sessionStorage.getItem('LostOrFound'); 
   var title = sessionStorage.getItem('title'); 
@@ -242,7 +259,7 @@ function sendGetRequest() {
   xhr.send();
 }
 
-function search(){
+function finderSearch(){
   
   //reading from user input
   
@@ -270,7 +287,7 @@ function search(){
   
 }
 
-function search2(){
+function seekerSearch(){
   
   //reading from user input
   
