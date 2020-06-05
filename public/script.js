@@ -11,9 +11,14 @@ function finderNext(){
     alert("PLease fill all required fields."); 
     return false; 
   }
-  if(document.getElementById('imgUpload') != undefined){
+  
+  //optional photo upload
+  try{
     photoURL = document.getElementById('imgUpload').files[0].name; 
-  } 
+  } catch(err){
+    photoURL = ""; 
+  }
+
   //store in session storage
   
   sessionStorage.setItem('LostOrFound', LostOrFound); 
@@ -57,20 +62,17 @@ function finderNext(){
 
 function finderSubmit(){
   
-  /*
-  var location = "", 
-      date = "", 
-      time = "";
-      */
-  try{
-    var location = document.getElementById('location').value; 
-	  var date = document.getElementById('date').value; 
-	  var time = document.getElementById('time').value; 
-  }catch(err){
-    alert("There are required field(s) left empty"); 
+  //reading inputs
+  //var location = document.getElementById('location').value; 
+  var location = "Somewhere on the planet"; 
+	var date = document.getElementById('date').value; 
+	var time = document.getElementById('time').value; 
+  
+  //catching if there are empty fields
+  if(location == "" || date == "" || time == ""){
+    alert("Please Fill All Required Field."); 
+    return false; 
   }
-  
-  
   
   //grab saved values in previous page
   var LostOrFound = sessionStorage.getItem('LostOrFound'); 
