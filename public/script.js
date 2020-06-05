@@ -2,20 +2,30 @@
 function finderNext(){
   
   //read from user input
-  var LostOrFound = "", 
-      title = "", 
-      description = "", 
-      category = "", 
-      photoURL = ""; 
+  /*
+  var LostOrFound, 
+      title, 
+      description, 
+      category, 
+      photoURL = "";
+   */
+  
+  /*
+  var photoURL = ""; 
   try{
-    LostOrFound = "Found"; 
-	  title = document.getElementById('title').value; 
-	  description = document.getElementById('description').value; 
-	  category = document.getElementById('category').value; 
+    var LostOrFound = "Found"; 
+	  var title = document.getElementById('title').value; 
+	  var description = document.getElementById('description').value; 
+	  var category = document.getElementById('category').value; 
   }catch(err){
-    alert("There are required fields left empty."); 
+    alert("There are required field(s) left empty."); 
   }
-  photoURL = document.getElementById('imgUpload').files[0].name; 
+  */
+  var LostOrFound = "Found"; 
+	var title = document.getElementById('title').value; 
+	var description = document.getElementById('description').value; 
+	var category = document.getElementById('category').value; 
+  var photoURL = document.getElementById('imgUpload').files[0].name; 
   //store in session storage
   
   sessionStorage.setItem('LostOrFound', LostOrFound); 
@@ -57,10 +67,14 @@ function finderSubmit(){
   var location = "", 
       date = "", 
       time = ""; 
+  try{
+    var location = document.getElementById('location').value; 
+	  var date = document.getElementById('date').value; 
+	  var time = document.getElementById('time').value; 
+  }catch(err){
+    alert("There are required field(s) left empty"); 
+  }
   
-  var location = document.getElementById('location').value; 
-	var date = document.getElementById('date').value; 
-	var time = document.getElementById('time').value; 
   
   
   //grab saved values in previous page
