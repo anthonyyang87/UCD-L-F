@@ -2,30 +2,22 @@
 function finderNext(){
   
   //read from user input
-  /*
   var LostOrFound, 
       title, 
       description, 
       category, 
       photoURL = "";
-   */
   
-  /*
-  var photoURL = ""; 
+  //alert if any required fields are left empty
   try{
-    var LostOrFound = "Found"; 
-	  var title = document.getElementById('title').value; 
-	  var description = document.getElementById('description').value; 
-	  var category = document.getElementById('category').value; 
+    LostOrFound = "Found"; 
+	  title = document.getElementById('title').value; 
+	  description = document.getElementById('description').value; 
+	  category = document.getElementById('category').value; 
   }catch(err){
     alert("There are required field(s) left empty."); 
   }
-  */
-  var LostOrFound = "Found"; 
-	var title = document.getElementById('title').value; 
-	var description = document.getElementById('description').value; 
-	var category = document.getElementById('category').value; 
-  var photoURL = document.getElementById('imgUpload').files[0].name; 
+
   //store in session storage
   
   sessionStorage.setItem('LostOrFound', LostOrFound); 
@@ -35,28 +27,33 @@ function finderNext(){
   sessionStorage.setItem('photoURL', photoURL); 
   
   //experiment handle upload photo here
-  var selectedFile = document.getElementById('imgUpload').files[0];
-  const formData = new FormData(); 
- 
-  formData.append('newImage', selectedFile, selectedFile.name); 
-  //formData.append('newImage', selectedFile); 
-  
-  //build http request data structure
-  const xhr = new XMLHttpRequest(); 
-  xhr.open("POST", "/upload", true); 
-  xhr.onloadend = function(e) {
-        // Get the server's response to the upload
-        console.log(xhr.responseText);
-      
-        //Here trigger upload to media storage
-        sendGetRequest(); 
-        
+  if(photoURL != ""){
+    var selectedFile = document.getElementById('imgUpload').files[0];
+    const formData = new FormData(); 
+    formData.append('newImage', selectedFile, selectedFile.name); 
+    //formData.append('newImage', selectedFile); 
+
+    //build http request data structure
+    const xhr = new XMLHttpRequest(); 
+    xhr.open("POST", "/upload", true); 
+    xhr.onloadend = function(e) {
+          // Get the server's response to the upload
+          console.log(xhr.responseText);
+
+          //Here trigger upload to media storage
+          sendGetRequest(); 
+
+          //redirect to next page
+          window.location.href = "screen04.html";
+      }
+
+      // actually send the request
+      xhr.send(formData);
+    } else {
         //redirect to next page
         window.location.href = "screen04.html";
     }
-  
-    // actually send the request
-    xhr.send(formData);
+
   
   //window.location.href = "screen04.html";
   
