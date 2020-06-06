@@ -19,6 +19,13 @@
     #nextBtn {
       background-color: #daab27;
     }
+    
+    #photoLabel {
+      background-color: #e5e5e5;
+      width: auto !important;
+      padding: 10px;
+      margin: 0 auto;
+    }
   </style>
 	<script src="script.js"></script>
 </head>
@@ -31,7 +38,7 @@
   <main>
     <h1 class="sectionTitle">Input the found item</h1>
     <section id="form">
-      <form>
+      <form method="post" enctype="multipart/form-data">
         <label for="title">Title</label><br>
         <input type="text" id="title" name="title"><br>
         <label for="category">Choose the category that the item belongs to.</label><br>
@@ -49,9 +56,9 @@
         <label for="description">Description</label><br>
         <textarea id="description" name="description"></textarea><br>
         
-        <label for="photoURL">Attach A Photo(Optional)</label><br>
-        <button>Chose File</button>
-        <input id="imgUpload" type="file" accept="image/*" name="photo"/>        
+        <label>Attach A Photo(Optional)</label><br>
+        <input id="photo" type="file" accept="image/*" name="photo" style="display:none;"/>   
+        <label id="photoLabel" for="photo">Chose File</label>
         <br>
         
         <div id="btnRow">

@@ -52,6 +52,8 @@ main {
 #form label {
   float: left;
   margin: 10px 0;
+  width: 100%;
+  text-align: left;
 }
 
 #form input {
