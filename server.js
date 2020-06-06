@@ -360,30 +360,31 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   var endTime = search.endTime; 
   
   //here we evaluate the search inputs to construct commmand
+  
   var cmd = "SELECT * FROM LostAndFoundTable WHERE (";
   
   if(startDate != ""){
-    cmd = cmd.concat("startDate>=? AND ");
+    cmd = cmd.concat("date>=? AND ");
   }else{
-    cmd = cmd.concat("startDate>=? OR "); 
+    cmd = cmd.concat("date>=? OR "); 
   }
   
   if(endDate != ""){
-    cmd = cmd + "endDate<=? AND ";
+    cmd = cmd + "date<=? AND ";
   }else{
-    cmd = cmd + "endDate<=? OR "; 
+    cmd = cmd + "date<=? OR "; 
   }
   
   if(startTime != ""){
-    cmd += "startTime>=? AND ";
+    cmd += "time>=? AND ";
   }else{
-    cmd += "startTime>=? OR "; 
+    cmd += "time>=? OR "; 
   }
   
   if(endTime != ""){
-    cmd += "endTime<=? AND ";
+    cmd += "time<=? AND ";
   }else{
-    cmd += "endTime<=? OR "; 
+    cmd += "time<=? OR "; 
   }
   
   if(category != ""){
@@ -398,7 +399,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
     cmd += "location=?) "; 
   }
   
-  console.log("Command entered: ", cmd); 
+  //console.log("Command entered: ", cmd); 
   //for testing
   console.log("Search input: ", search); 
   //construct command
