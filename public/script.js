@@ -363,11 +363,12 @@ function loadResult(){
   xhr.onloadend = function(e){
     var res = xhr.responseText; 
     
+    /*
     //  Call show results function
     res.foreach(item => {
-      alert(item);
+      console.log(item);
     });
-    
+    */
     console.log(res); 
   }
   
