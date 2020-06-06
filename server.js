@@ -350,6 +350,7 @@ app.get('/getDataFromDB', function (req, res){
 app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   //read and parse request packet
   var search = JSON.parse(req.query.id); 
+  var searchText = search.searchText; 
   var category = search.category; 
   var location = search.location; 
   //var date = search.date; 
@@ -359,12 +360,14 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   var startTime = search.startTime; 
   var endTime = search.endTime; 
   
+  
   //here we evaluate the search inputs to construct commmand
   ////////////////////////////////////////
   var cmd = "SELECT * FROM LostAndFoundTable WHERE ";
   var list2 = [];
   var list = []; 
   var condition = ""; 
+  
   if(startDate != ""){
     //cmd = cmd.concat("date>=startDate AND ");
     list.push("date>=?"); 

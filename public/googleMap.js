@@ -43,9 +43,12 @@ function initMap() {
         console.log("placesCallback", status);
         for (let i=0; i<results.length; i++) {
           console.log(results[i].name, results[i].types);
+          // alert(results[i].name);
         }
+      
+        alert(results[0].name);
         
-        document.ge
+        document.getElementById("location").value = results[0].name;
     }
 }
                     
