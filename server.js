@@ -360,7 +360,43 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   var endTime = search.endTime; 
   
   //here we evaluate the search inputs to construct commmand
-  for()
+  var cmd = "SELECT * FROM LostAndFoundTable WHERE (";
+  if(category != ""){
+    cmd + "category=? AND";
+  }else{
+    cmd + "category=? OR";
+  }
+  
+  if(location != ""){
+    cmd + "location=? AND";
+  }else{
+    cmd + "location=? OR"; 
+  }
+  
+  if(startDate != ""){
+    cmd + "startDate>=? AND";
+  }else{
+    cmd + "startDate>=? OR"; 
+  }
+  
+  if(endDate != ""){
+    cmd + "endDate<=? AND";
+  }else{
+    cmd + "endDate<=? OR"; 
+  }
+  
+  if(startTime != ""){
+    cmd + "startTime>=? AND";
+  }else{
+    cmd + "startTime=? OR"; 
+  }
+  
+  if(location != ""){
+    cmd + "location=? AND";
+  }else{
+    cmd + "location=? OR"; 
+  }
+  
   //for testing
   console.log("Search input: ", search); 
   //construct command
