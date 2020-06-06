@@ -362,6 +362,9 @@ function loadResult(){
     var res = xhr.responseText; 
     
     //  Call show results function
+    res.foreach(item => {
+      alert(item);
+    });
     
     console.log(res); 
   }
