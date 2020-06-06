@@ -346,7 +346,7 @@ app.get('/getDataFromDB', function (req, res){
 }); 
 
 
-//Hondle a get request for search result
+// Hondle a get request for search result
 app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   //read and parse request packet
   var search = JSON.parse(req.query.id); 
@@ -397,7 +397,8 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   
   if(location != ""){
     //cmd += "location=location) ";
-    list.push("location==location"); 
+    list.push("location=?");
+    list2.push(location); 
   }
   
   for( var i=0; i < list.length; i++){
@@ -415,7 +416,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   //construct command
   //cmd = "SELECT * FROM LostAndFoundTable WHERE ((date>=? OR ''=='') AND (date<=? OR ''=='') AND (time>=? OR ''=='') AND (time<=? OR ''=='') AND (category=? OR ''=='') AND (location=? OR ''=='')) ";
   //cmd = "SELECT * FROM LostAndFoundTable WHERE category='Electronics'"
-  lostDB.all(cmd, startDate, endDate, startTime, endTime, category, location, function(err, data){
+  lostDB.all(cmd, list2, function(err, data){
     if(err){
       console.log("Database read error"); 
     }else{
