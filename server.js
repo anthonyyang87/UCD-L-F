@@ -384,7 +384,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
         temp += "'%'||?||'%' AND "; 
       }else{
         temp += "'%'||?||'%')"
-        list.push(temp); 
+        //list.push(temp); 
       }
     }
     
@@ -393,13 +393,17 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
     for(var i=0; i < numOfWords; i++){
       list2.push(searchKeyWords[i]); 
       if(i < (numOfWords-1)){
-        temp += "'%'||?||'%' AND "; 
+        temp2 += "'%'||?||'%' AND "; 
       }else{
-        temp += "'%'||?||'%')"
-        list.push(temp); 
+        temp2 += "'%'||?||'%')"
+        //list.push(temp); 
       }
     }
+    
+    var temp3 = "(" + temp + " OR " + temp2 + ")"; 
+    list.push(temp3); 
   }
+  
   //other cmd
   if(startDate != ""){
     //cmd = cmd.concat("date>=startDate AND ");
@@ -433,6 +437,9 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   
   if(location != ""){
     //cmd += "location=location) ";
+    //search using Like statement
+    var keys = location.split(); 
+    var num = 
     list.push("location=?");
     list2.push(location); 
   }
