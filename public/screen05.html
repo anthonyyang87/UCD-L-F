@@ -33,9 +33,13 @@
     </a>
   </header>
   <main>
-    <h1 id="formTitle">Search for existing requests</h1>
-    <div onload="showDataStored()"></div>
-    <button onclick="showDataStored()">Click to show</button>
+    <h1 class="sectionTitle">Search for existing requests</h1>
+    <section id="search">
+      <div class="search-container">
+        <input id="searchTxt" type="text" placeholder="Search.." name="search">
+        <img id="searchBtn" onclick="searchBtnClick()" src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2Fsearch-solid.svg?v=1591018108417">
+      </div>
+    </section>
     
     <section id="form">
       <form>         
@@ -69,6 +73,8 @@
     </section>
   </main>
   <script>
+    
+    document.
     /*
     // For map
      (function(exports) {

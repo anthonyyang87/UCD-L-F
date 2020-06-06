@@ -385,3 +385,10 @@ function showAllDataStored(){
   //sending request to server
   xhr.send(); 
 }
+
+// Search button
+function searchBtnClick() {
+  sessionStorage.setItem('search', document.getElementById('searchTxt').value);
+  console.log(document.getElementById('searchTxt').value);
+  window.location = "/screen05.html";
+}
