@@ -216,9 +216,7 @@ function seekerSubmit(){
   
   //now send user data to server
   sendToServer(jsonObj); 
-  
-  //uploading image to server
-  //uploadImage(photoData); 
+  alert("")
 }
 
 function sendToServer(data){
