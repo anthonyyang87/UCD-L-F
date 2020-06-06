@@ -363,39 +363,39 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   var cmd = "SELECT * FROM LostAndFoundTable WHERE (";
   
   if(startDate != ""){
-    cmd + "startDate>=? AND ";
+    cmd = cmd.concat("startDate>=? AND ");
   }else{
-    cmd + "startDate>=? OR "; 
+    cmd = cmd.concat("startDate>=? OR "); 
   }
   
   if(endDate != ""){
-    cmd + "endDate<=? AND ";
+    cmd = cmd + "endDate<=? AND ";
   }else{
-    cmd + "endDate<=? OR "; 
+    cmd = cmd + "endDate<=? OR "; 
   }
   
   if(startTime != ""){
-    cmd + "startTime>=? AND ";
+    cmd += "startTime>=? AND ";
   }else{
-    cmd + "startTime>=? OR "; 
+    cmd += "startTime>=? OR "; 
   }
   
   if(endTime != ""){
-    cmd + "endTime<=? AND ";
+    cmd += "endTime<=? AND ";
   }else{
-    cmd + "endTime<=? OR)"; 
+    cmd += "endTime<=? OR "; 
   }
   
   if(category != ""){
-    cmd + "category=? AND ";
+    cmd += "category=? AND ";
   }else{
-    cmd + "category=? OR ";
+    cmd += "category=? OR ";
   }
   
   if(location != ""){
-    cmd + "location=?)";
+    cmd += "location=?) ";
   }else{
-    cmd + "location=?)"; 
+    cmd += "location=?) "; 
   }
   
   console.log("Command entered: ", cmd); 
