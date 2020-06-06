@@ -372,10 +372,16 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   var numOfWords = 0; 
   //construct helper function to construct cmd for searchText condition
   if(searchText != ""){
+    var temp = "title CONTAINS ' "; 
     searchKeyWords = searchText.split();
     numOfWords = searchKeyWords.length; 
     for(var i=0; i < numOfWords; i++){
-      
+      if(i < (numOfWords-1)){
+        temp += "? AND "; 
+      }else{
+        temp += "?'"
+        list
+      }
     }
   }
   //other cmd
