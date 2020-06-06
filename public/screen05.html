@@ -16,15 +16,29 @@
     #map {
       height: 100%;
     }
+    
+    #to {
+      width: auto !important;
+      padding: 0 10px
+    }
+    
+     /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #mapContainer {
+      height: 500px;
+      background-color: #e5e5e5;
+    }
+    
+    #map {
+        height: 100%;
+        width: 100%;
+      }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  
-  <!--
-  <script 
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
-    defer
-  ></script>
-  -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
 </head>
 <body>
   <header>
@@ -46,13 +60,13 @@
         <label for="DateNTime">Date and time</label><br>
         
         <div class="dateNTime">
-          <input type="date" id="startDate" name="startDate">
-          <input type="time" id="startTime" name="startTime">
+          <input class="date" type="date" id="startDate" name="startDate">
+          <input class="time" type="time" id="startTime" name="startTime">
         </div>
-        
+        <label id="to">to</label>
         <div class="dateNTime">
-          <input type="date" id="endDate" name="endDate">
-          <input type="time" id="endTime" name="endTime">
+          <input class="date" type="date" id="endDate" name="endDate">
+          <input class="time" type="time" id="endTime" name="endTime">
         </div>
         
 <!--         <input type="date" id="startDate" name="startDate"><br>
@@ -78,8 +92,10 @@
         </datalist>
         
         <label for="location">Location</label><br>
-        <input type="text" id="location" name="location"><br>
-        <div id="map"></div>
+        <input type="text" id="location" name="location"><br><br>
+        <div id="mapContainer">
+          <div id="map"></div>
+        </div>
         
         <div id="btnRow">
           <button type="button" class="btn" onclick="finderSearch()">Search</button>       
@@ -90,7 +106,7 @@
   <script>
     
     document.getElementById('searchTxt').value = sessionStorage.getItem('search');
-    /*
+    
     // For map
      (function(exports) {
         "use strict";
@@ -98,16 +114,16 @@
         function initMap() {
           exports.map = new google.maps.Map(document.getElementById("map"), {
             center: {
-              lat: -34.397,
-              lng: 150.644
+              lat: 38.537 ,
+              lng:  -121.754
             },
-            zoom: 8
+            zoom: 16
           });
         }
 
         exports.initMap = initMap;
       })((this.window = this.window || {}));
-    */
+   
   </script>
 </body>
 </html>
