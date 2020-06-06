@@ -364,7 +364,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   //for testing
   console.log("Search input: ", search); 
   //construct command
-  cmd = "SELECT * FROM LostAndFoundTable WHERE (date>=? AND date<=? AND time>=? AND time<=? ) AND (category=? AND location=?) ";
+  cmd = "SELECT * FROM LostAndFoundTable WHERE ((date>=? OR date=="") AND (date<=? OR date=="") AND (time>=? OR time=="") AND (time<=? OR time=="") ) AND ((category=? OR category=="") AND (location=? OR location=="")) ";
   //cmd = "SELECT * FROM LostAndFoundTable WHERE category='Electronics'"
   lostDB.all(cmd, startDate, endDate, startTime, endTime, category, location, function(err, data){
     if(err){
