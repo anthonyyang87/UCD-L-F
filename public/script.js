@@ -216,7 +216,6 @@ function seekerSubmit(){
   
   //now send user data to server
   sendToServer(jsonObj); 
-  alert("")
 }
 
 function sendToServer(data){
@@ -230,6 +229,7 @@ function sendToServer(data){
   xmlhttp.onloadend = function(e) {
     let response = xmlhttp.responseText; 
     console.log("Response from server: ", response); 
+    alert("Item Saved"); 
     // immediately switch to display view
     //window.open("display.html");
   }
@@ -270,6 +270,8 @@ function finderSearch(){
   var endDate = document.getElementById('endDate').value; 
   var startTime = document.getElementById('startTime').value; 
   var endTime = document.getElementById('endTime').value; 
+  
+  //get textbox information from seesion storage
   
   //this checks if at least one field is filled
   if(category == "" && location == "" && startDate == "" && endDate == "" && startTime == "" && endTime == ""){
@@ -329,6 +331,7 @@ function seekerSearch(){
 function loadResult(){
   
   //retrieve search input from session storage
+  var searchText = sessionStorage.getItem('searchText'); 
   var category = sessionStorage.getItem('category'); 
   var location = sessionStorage.getItem('location'); 
   //var date  = sessionStorage.getItem('date'); 
@@ -341,6 +344,7 @@ function loadResult(){
   
   //construct json object
   var jsonObj = {
+    searchText: searchText, 
     category: category, 
     location: location, 
     startDate: startDate, 
@@ -389,7 +393,7 @@ function showAllDataStored(){
 
 // Search button
 function searchBtnClick() {
-  sessionStorage.setItem('search', document.getElementById('searchTxt').value);
+  sessionStorage.setItem('searchText', document.getElementById('searchTxt').value);
   console.log(document.getElementById('searchTxt').value);
   window.location = "/screen05.html";
 }

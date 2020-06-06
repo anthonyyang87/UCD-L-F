@@ -45,6 +45,7 @@ function initMap() {
           console.log(results[i].name, results[i].types);
         }
         
+        document.ge
     }
 }
                     
