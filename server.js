@@ -361,46 +361,48 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   
   //here we evaluate the search inputs to construct commmand
   var cmd = "SELECT * FROM LostAndFoundTable WHERE (";
-  if(category != ""){
-    cmd + "category=? AND";
-  }else{
-    cmd + "category=? OR";
-  }
-  
-  if(location != ""){
-    cmd + "location=? AND";
-  }else{
-    cmd + "location=? OR"; 
-  }
   
   if(startDate != ""){
-    cmd + "startDate>=? AND";
+    cmd + "startDate>=? AND ";
   }else{
-    cmd + "startDate>=? OR"; 
+    cmd + "startDate>=? OR "; 
   }
   
   if(endDate != ""){
-    cmd + "endDate<=? AND";
+    cmd + "endDate<=? AND ";
   }else{
-    cmd + "endDate<=? OR"; 
+    cmd + "endDate<=? OR "; 
   }
   
   if(startTime != ""){
-    cmd + "startTime>=? AND";
+    cmd + "startTime>=? AND ";
   }else{
-    cmd + "startTime=? OR"; 
+    cmd + "startTime>=? OR "; 
+  }
+  
+  if(endTime != ""){
+    cmd + "endTime<=? AND ";
+  }else{
+    cmd + "endTime<=? OR)"; 
+  }
+  
+  if(category != ""){
+    cmd + "category=? AND ";
+  }else{
+    cmd + "category=? OR ";
   }
   
   if(location != ""){
-    cmd + "location=? AND";
+    cmd + "location=?)";
   }else{
-    cmd + "location=? OR"; 
+    cmd + "location=?)"; 
   }
   
+  console.log("Command entered: ", cmd); 
   //for testing
   console.log("Search input: ", search); 
   //construct command
-  cmd = "SELECT * FROM LostAndFoundTable WHERE ((date>=? OR date=='') AND (date<=? OR date=='') AND (time>=? OR time=='') AND (time<=? OR time=='') AND (category=? OR category=='') AND (location=? OR location=='')) ";
+  //cmd = "SELECT * FROM LostAndFoundTable WHERE ((date>=? OR date=='') AND (date<=? OR date=='') AND (time>=? OR time=='') AND (time<=? OR time=='') AND (category=? OR category=='') AND (location=? OR location=='')) ";
   //cmd = "SELECT * FROM LostAndFoundTable WHERE category='Electronics'"
   lostDB.all(cmd, startDate, endDate, startTime, endTime, category, location, function(err, data){
     if(err){
