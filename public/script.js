@@ -270,7 +270,7 @@ function finderSearch(){
   var endDate = document.getElementById('endDate').value; 
   var startTime = document.getElementById('startTime').value; 
   var endTime = document.getElementById('endTime').value; 
-  
+  var searchText = document.getElementById('searchTxt').value; 
   //get textbox information from seesion storage
   
   //this checks if at least one field is filled
@@ -287,8 +287,9 @@ function finderSearch(){
   sessionStorage.setItem('endDate', endDate); 
   sessionStorage.setItem('startTime', startTime); 
   sessionStorage.setItem('endTime', endTime); 
+  sessionStorage.setItem('searchText', searchText); 
   
-  console.log("Search Input: ", category, location, startDate, endDate, startTime, endTime); 
+  console.log("Search Input: ", category, location, startDate, endDate, startTime, endTime, searchText); 
   window.location.href = "screen10.html";
   
 }
@@ -299,9 +300,7 @@ function seekerSearch(){
   
   var category = document.getElementById('category').value; 
   var location = document.getElementById('location').value; 
-	//var date = document.getElementById('date').value; 
-	//var time = document.getElementById('time').value; 
-  
+  var searchText = document.getElementById('searchTxt').value; 
   var startDate = document.getElementById('startDate').value; 
   var endDate = document.getElementById('endDate').value; 
   var startTime = document.getElementById('startTime').value; 
@@ -322,6 +321,7 @@ function seekerSearch(){
   sessionStorage.setItem('endDate', endDate); 
   sessionStorage.setItem('startTime', startTime); 
   sessionStorage.setItem('endTime', endTime); 
+  sessionStorage.setItem('searchText', searchText); 
   
   window.location.href = "screen09.html";
   
