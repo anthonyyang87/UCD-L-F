@@ -438,12 +438,19 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   if(location != ""){
     //cmd += "location=location) ";
     //search using Like statement
+    var tempL = "(location LIKE "
     var keys = location.split(); 
-    var num = 
-    list.push("location=?");
-    list2.push(location); 
+    var num = keys.length; 
+    for(var i=0; i < num; i++){
+      list2.push(keys[i]); 
+      if(i < (num-1)){
+        tempL += "'%'||?||'%' AND "; 
+      }else{
+        tempL += "'%'||?||'%')"
+        list.push(tempL); 
+      }
+    }
   }
-  
   //putting all the conditions together
   for( var i=0; i < list.length; i++){
     if(i==(list.length-1)){
