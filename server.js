@@ -364,39 +364,27 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   var cmd = "SELECT * FROM LostAndFoundTable WHERE (";
   
   if(startDate != ""){
-    cmd = cmd.concat("date>=? AND ");
-  }else{
-    cmd = cmd.concat("date>=? OR "); 
+    cmd = cmd.concat("date>=startDate AND ");
   }
   
   if(endDate != ""){
-    cmd = cmd + "date<=? AND ";
-  }else{
-    cmd = cmd + "date<=? OR "; 
-  }
+    cmd = cmd + "date<=endDate AND ";
+  }else
   
   if(startTime != ""){
-    cmd += "time>=? AND ";
-  }else{
-    cmd += "time>=? OR "; 
+    cmd += "time>=startTime AND ";
   }
   
   if(endTime != ""){
-    cmd += "time<=? AND ";
-  }else{
-    cmd += "time<=? OR "; 
-  }
+    cmd += "time<=endTime AND ";
+  }else
   
   if(category != ""){
-    cmd += "category=? AND ";
-  }else{
-    cmd += "category=? OR ";
+    cmd += "category=category AND ";
   }
   
   if(location != ""){
-    cmd += "location=?) ";
-  }else{
-    cmd += "location=?) "; 
+    cmd += "location=location) ";
   }
   
   //console.log("Command entered: ", cmd); 
@@ -405,7 +393,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   //construct command
   //cmd = "SELECT * FROM LostAndFoundTable WHERE ((date>=? OR date=='') AND (date<=? OR date=='') AND (time>=? OR time=='') AND (time<=? OR time=='') AND (category=? OR category=='') AND (location=? OR location=='')) ";
   //cmd = "SELECT * FROM LostAndFoundTable WHERE category='Electronics'"
-  lostDB.all(cmd, startDate, endDate, startTime, endTime, category, location, function(err, data){
+  lostDB.all(cmd, function(err, data){
     if(err){
       console.log("Database read error"); 
     }else{
