@@ -374,7 +374,9 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   if(searchText != ""){
     searchKeyWords = searchText.split();
     numOfWords = searchKeyWords.length; 
-    
+    for(var i=0; i < numOfWords; i++){
+      
+    }
   }
   //other cmd
   if(startDate != ""){
@@ -413,6 +415,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
     list2.push(location); 
   }
   
+  //putting all the conditions together
   for( var i=0; i < list.length; i++){
     if(i==(list.length-1)){
       condition += list[i]; 
