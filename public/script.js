@@ -360,6 +360,9 @@ function loadResult(){
   
   xhr.onloadend = function(e){
     var res = xhr.responseText; 
+    
+    //  Call show results function
+    
     console.log(res); 
   }
   
