@@ -273,6 +273,11 @@ function finderSearch(){
   var startTime = document.getElementById('startTime').value; 
   var endTime = document.getElementById('endTime').value; 
   
+  //this checks if at least one field is filled
+  if(category == "" && location == "" && startDate == "" && endDate == "" && startTime == "" && endTime == ""){
+    alert("Please Fill In At Least One Field."); 
+    return false; 
+  }
   sessionStorage.setItem("category", category); 
   sessionStorage.setItem('location', location); 
   //sessionStorage.setItem('date', date); 
@@ -283,7 +288,8 @@ function finderSearch(){
   sessionStorage.setItem('startTime', startTime); 
   sessionStorage.setItem('endTime', endTime); 
   
-  window.location.href = "screen10.html";
+  console.log("Search Input: ", category, location, startDate, endDate, startTime, endTime); 
+  //window.location.href = "screen10.html";
   
 }
 
@@ -300,6 +306,12 @@ function seekerSearch(){
   var endDate = document.getElementById('endDate').value; 
   var startTime = document.getElementById('startTime').value; 
   var endTime = document.getElementById('endTime').value; 
+  
+  //this checks if at least one field is filled
+  if(category == "" && location == "" && startDate == "" && endDate == "" && startTime == "" && endTime == ""){
+    alert("Please Fill In At Least One Field."); 
+    return false; 
+  }
   
   sessionStorage.setItem("category", category); 
   sessionStorage.setItem('location', location); 
@@ -339,7 +351,7 @@ function loadResult(){
     endTime: endTime
   }; 
   
-  //send to server
+  //send request to server
   let xhr = new XMLHttpRequest; 
   var url = "cool-ant-eth.glitch.me/screen10.html?id=" + JSON.stringify(jsonObj); 
   console.log(url); 
