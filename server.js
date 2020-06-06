@@ -368,6 +368,15 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   var list = []; 
   var condition = ""; 
   
+  var searchKeyWords; 
+  var numOfWords = 0; 
+  //construct helper function to construct cmd for searchText condition
+  if(searchText != ""){
+    searchKeyWords = searchText.split();
+    numOfWords = searchKeyWords.length; 
+    
+  }
+  //other cmd
   if(startDate != ""){
     //cmd = cmd.concat("date>=startDate AND ");
     list.push("date>=?"); 
