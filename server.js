@@ -361,9 +361,9 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   
   //here we evaluate the search inputs to construct commmand
   
-  var cmd = "SELECT * FROM LostAndFoundTable WHERE (";
+  var cmd = "SELECT * FROM LostAndFoundTable WHERE ";
   var list = []; 
-  
+  var condition = ""; 
   if(startDate != ""){
     //cmd = cmd.concat("date>=startDate AND ");
     list.push("date>=startDate"); 
@@ -386,17 +386,23 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   
   if(category != ""){
     //cmd += "category=category AND ";
-    list.push("category=category"); 
+    list.push("category==category"); 
   }
   
   if(location != ""){
     //cmd += "location=location) ";
-    list.push("location=location"); 
+    list.push("location==location"); 
   }
   
-  for(int i=0; i < list.length; i++){
-    
+  for( var i=0; i < list.length; i++){
+    if(i==(list.length-1)){
+      condition += list[i]; 
+      cmd += condition; 
+    }else{
+      condition += (list[i] + " AND "); 
+    }
   }
+  
   console.log("Command entered: ", cmd); 
   //for testing
   console.log("Search input: ", search); 
