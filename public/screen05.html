@@ -54,9 +54,6 @@
         <label for="endTime">End Time</label><br>
         <input type="time" id="endTime" name="endTime"><br>
         
-        <label for="location">Location</label><br>
-        <input type="text" id="location" name="location"><br>
-        <div id="map"></div>
         <label for="category">Category</label><br>
         <input list="categories" id="category" name="category"><br>
         <datalist id="categories">
@@ -68,13 +65,20 @@
           <option value="Bike/Scooter">
           <option value="Others">
         </datalist>
-        <button type="button" onclick="finderSearch()">Search</button>
+        
+        <label for="location">Location</label><br>
+        <input type="text" id="location" name="location"><br>
+        <div id="map"></div>
+        
+        <div id="btnRow">
+          <button type="button" class="btn" onclick="finderSearch()">Search</button>       
+        </div> 
       </form>
     </section>
   </main>
   <script>
     
-    document.
+    document.getElementById('searchTxt').value = sessionStorage.getItem('search');
     /*
     // For map
      (function(exports) {
