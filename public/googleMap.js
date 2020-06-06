@@ -10,7 +10,7 @@ let map;  // this will be global
 // This gets called when the Google maps librarys are fully downloaded
 function initMap() {
       // stick a Google map onto the page
-      map = new google.maps.Map(document.getElementById("map"), {
+      exports.map = new google.maps.Map(document.getElementById("map"), {
             center: {
               lat: 38.537 ,
             lng:  -121.754
