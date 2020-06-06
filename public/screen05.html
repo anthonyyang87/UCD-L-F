@@ -39,6 +39,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
+   <script src="/googleMap.js"></script>
 </head>
 <body>
   <header>
@@ -104,26 +105,7 @@
     </section>
   </main>
   <script>
-    
     document.getElementById('searchTxt').value = sessionStorage.getItem('search');
-    
-    // For map
-     (function(exports) {
-        "use strict";
-
-        function initMap() {
-          exports.map = new google.maps.Map(document.getElementById("map"), {
-            center: {
-              lat: 38.537 ,
-              lng:  -121.754
-            },
-            zoom: 16
-          });
-        }
-
-        exports.initMap = initMap;
-      })((this.window = this.window || {}));
-   
   </script>
 </body>
 </html>
