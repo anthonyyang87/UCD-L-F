@@ -43,8 +43,19 @@
     
     <section id="form">
       <form>         
-        <label for="startDate">Start Date</label><br>
-        <input type="date" id="startDate" name="startDate"><br>
+        <label for="DateNTime">Date and time</label><br>
+        
+        <div class="dateNTime">
+          <input type="date" id="startDate" name="startDate">
+          <input type="time" id="startTime" name="startTime">
+        </div>
+        
+        <div class="dateNTime">
+          <input type="date" id="endDate" name="endDate">
+          <input type="time" id="endTime" name="endTime">
+        </div>
+        
+<!--         <input type="date" id="startDate" name="startDate"><br>
         <label for="startTime">Start Time</label><br>
         <input type="time" id="startTime" name="startTime"><br>
         
@@ -52,7 +63,7 @@
         <label for="endDate">End Date</label><br>
         <input type="date" id="endDate" name="endDate"><br>
         <label for="endTime">End Time</label><br>
-        <input type="time" id="endTime" name="endTime"><br>
+        <input type="time" id="endTime" name="endTime"><br> -->
         
         <label for="category">Category</label><br>
         <input list="categories" id="category" name="category"><br>
