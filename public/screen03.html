@@ -35,15 +35,15 @@
         <label for="title">Title</label><br>
         <input type="text" id="title" name="title"><br>
         <label for="category">Choose the category that the item belongs to.</label><br>
-        <input list="categories" id="category" name="category"><br>
+        <input list="categories" id="category" name="category" onfocus="this.value=''"><br>
         <datalist id="categories">
-          <option value="Electronics">
-          <option value="Wallet">
-          <option value="Accessories">
-          <option value="Books">
-          <option value="Keys">
-          <option value="Bike/Scooter">
-          <option value="Others">
+          <option value="Electronics"></option>
+          <option value="Wallet"></option>
+          <option value="Accessories"></option>
+          <option value="Books"></option>
+          <option value="Keys"></option>
+          <option value="Bike/Scooter"></option>
+          <option value="Others"></option>
         </datalist>
         
         <label for="description">Description</label><br>
@@ -59,14 +59,14 @@
     
     <h1>Or search for existing requests</h1>
     <section id="search">
-      <a href="/screen05.html" class="searchBtn">
-          <div>
-            <img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2Fsearch-solid.svg?v=1591018108417" />
-          </div>
-      </a>
+      <div class="searchBtn">
+        <input>
+        <img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2Fsearch-solid.svg?v=1591018108417" />
+      </div>
     </section>
     
     <script>
+      
       
     </script>
   </main>
