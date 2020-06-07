@@ -104,7 +104,7 @@ function finderSubmit(){
   console.log("Json object: ", jsonObj); 
   
   //now send user data to server
-  sendToServer(jsonObj); 
+  sendToServer(jsonObj, "finder"); 
   
   //redirect to homw page
   //window.location.href="screen02.html"; 
@@ -215,13 +215,13 @@ function seekerSubmit(){
   console.log("Json object: ", jsonObj); 
   
   //now send user data to server
-  sendToServer(jsonObj); 
+  sendToServer(jsonObj, "seeker"); 
   
   //redirect back to home page
   window.location.href="screen02.html"; 
 }
 
-function sendToServer(data){
+function sendToServer(data, origin){
   
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
