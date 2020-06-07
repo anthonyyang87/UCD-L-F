@@ -32,6 +32,7 @@ main {
 }
 
 .sectionTitle {
+  font-family: "Montserrat", bolder !important;
   font-weight: bolder;
   text-align: left;
   width: 90%;
@@ -137,4 +138,31 @@ main {
 
 .time {
   width: 20% !important;
+}
+
+/* Search Result */
+.searchResultsTitle {
+  font-family: "Montserrat", bolder !important;
+  font-weight: bolder;
+  text-align: left;
+  width: 100%;
+  margin: auto;
+}
+
+.resultsSub {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.resultsSub h1 {
+  
+}
+
+.resultsSub a {
+  color: white;
+  background-color: #142a50;
+  width: 150px;
+  
 }

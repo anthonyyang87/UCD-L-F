@@ -297,7 +297,7 @@ function finderSearch(){
   sessionStorage.setItem('searchText', searchText); 
   
   console.log("Search Input: ", category, location, startDate, endDate, startTime, endTime, searchText); 
-  window.location.href = "screen10.html";
+  window.location.href = "screen09.html";
   
 }
 
