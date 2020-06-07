@@ -16,15 +16,31 @@
     #map {
       height: 100%;
     }
+    
+    #to {
+      width: auto !important;
+      padding: 0 10px
+    }
+    
+     /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #mapContainer {
+      height: 500px;
+      background-color: #e5e5e5;
+    }
+    
+    #map {
+        height: 100%;
+        width: 100%;
+      }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   
-  <!--
   <script 
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
     defer
   ></script>
-  -->
+
 </head>
 <body>
   <header>
@@ -43,8 +59,19 @@
     
     <section id="form">
       <form>         
-        <label for="startDate">Start Date</label><br>
-        <input type="date" id="startDate" name="startDate"><br>
+        <label for="DateNTime">Date and time</label><br>
+        
+        <div class="dateNTime">
+          <input class="date" type="date" id="startDate" name="startDate">
+          <input class="time" type="time" id="startTime" name="startTime">
+        </div>
+        <label id="to">to</label>
+        <div class="dateNTime">
+          <input class="date" type="date" id="endDate" name="endDate">
+          <input class="time" type="time" id="endTime" name="endTime">
+        </div>
+        
+<!--         <input type="date" id="startDate" name="startDate"><br>
         <label for="startTime">Start Time</label><br>
         <input type="time" id="startTime" name="startTime"><br>
         
@@ -52,11 +79,8 @@
         <label for="endDate">End Date</label><br>
         <input type="date" id="endDate" name="endDate"><br>
         <label for="endTime">End Time</label><br>
-        <input type="time" id="endTime" name="endTime"><br>
+        <input type="time" id="endTime" name="endTime"><br> -->
         
-        <label for="location">Location</label><br>
-        <input type="text" id="location" name="location"><br>
-        <div id="map"></div>
         <label for="category">Category</label><br>
         <input list="categories" id="category" name="category"><br>
         <datalist id="categories">
@@ -68,6 +92,13 @@
           <option value="Bike/Scooter">
           <option value="Others">
         </datalist>
+        
+        <label for="location">Location</label><br>
+        <input type="text" id="location" name="location"><br><br>
+        <div id="mapContainer">
+          <div id="map"></div>
+        </div>
+        
         <div id="btnRow">
           <button type="button" class="btn" onclick="seekerSearch()">Search</button>       
         </div> 
