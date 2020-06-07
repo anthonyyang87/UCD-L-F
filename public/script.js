@@ -218,7 +218,7 @@ function seekerSubmit(){
   sendToServer(jsonObj); 
   
   //redirect back to home page
-  window.location.href="screen02.html"; 
+  //window.location.href="screen02.html"; 
 }
 
 function sendToServer(data){
@@ -233,7 +233,7 @@ function sendToServer(data){
     let response = xmlhttp.responseText; 
     console.log("Response from server: ", response); 
     
-    if(confirm("Item Saved. Redirect to homepage")){
+    if(confirm("Item Saved. Redirect to homepage?")){
       window.location.href="screen02.html"; 
     }
     
