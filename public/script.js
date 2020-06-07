@@ -216,6 +216,9 @@ function seekerSubmit(){
   
   //now send user data to server
   sendToServer(jsonObj); 
+  
+  //redirect back to home page
+  
 }
 
 function sendToServer(data){
