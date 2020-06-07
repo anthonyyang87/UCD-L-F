@@ -383,7 +383,7 @@ function loadResult(type){
     let items = JSON.parse(res);
     items.forEach(item => {
       // Add item to list
-      if(item[""] == type)
+      // if(item[""] == type)
     });
     
     // console.log(res); 

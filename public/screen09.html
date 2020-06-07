@@ -46,7 +46,11 @@
   </main>
   <script>
     let url = window.location.href;
-    let id = url.slice(url.indexOf("id=")+3);
+    let action = url.slice(url.indexOf("action=")+7);
+    
+    if(action == 'showSearch') {
+      // loadResult()
+    }
   </script>
 </body>
 </html>

@@ -48,7 +48,9 @@
         <label for="location">Location</label><br>
 <!--         <input type="text" id="location" name="location"><br> -->
         <br>
-        <input type="text" id="location" name="location"><br><br>
+        <input list="locations" id="location" name="location"><br><br>
+        <datalist id="locations">
+        </datalist>
         <div id="mapContainer">
           <div id="map"></div>
         </div>
@@ -77,5 +79,14 @@
     ></script>
   <!-- the map is added to the div "map" by the initMaps function, which is in this script -->
   <script src="googleMap.js"></script>
+  
+  <script>
+    var list = document.getElementById("locations");
+    
+    var opt = document.createElement("option");
+    opt.value = "3";
+    
+    list.add(opt, null);
+  </script>
 </body>
 </html>
