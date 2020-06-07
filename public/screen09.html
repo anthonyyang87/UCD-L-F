@@ -33,7 +33,7 @@
   <main>
     <h1 class="searchResultsTitle">Showing results for</h1>
     <div class="resultsSub">
-      <h1>Search query</h1>
+      <h1 id="searchQuery">Search query</h1>
       <a href="/screen05.html">Edit Search</a>
     </div>
     
@@ -45,11 +45,24 @@
     </ul>
   </main>
   <script>
+    // Display results
     let url = window.location.href;
     let action = url.slice(url.indexOf("action=")+7);
+    console.log(action);
+    
+    let searchQuery = document.querySelector('#searchQuery');
     
     if(action == 'showSearch') {
       // loadResult()
+      console.log('showing search');
+      
+    }
+    else if(action == 'showAll') {
+      console.log('showing all');
+      searchQuery.innerHTML = 'Showing all results';
+    }
+    else {
+      console.log('Invalid action!')
     }
   </script>
 </body>
