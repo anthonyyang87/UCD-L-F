@@ -375,16 +375,16 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   if(searchText != ""){
     
     //this contructs for description
-    var temp = "(description LIKE "; 
+    var temp = "((description LIKE "; 
     searchKeyWords = searchText.split(" ").filter(function(el) {return el.length != 0});
     console.log("Search Key words: ", searchKeyWords); 
     numOfWords = searchKeyWords.length; 
     for(var i=0; i < numOfWords; i++){
       list2.push(searchKeyWords[i]); 
       if(i < (numOfWords-1)){
-        temp += "'%'||?||'%' AND "; 
+        temp += "'%'||?||'%') AND (description LIKE"; 
       }else{
-        temp += "'%'||?||'%')"
+        temp += "'%'||?||'%'))"
         //list.push(temp); 
       }
     }
@@ -440,16 +440,16 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   if(location != ""){
     //cmd += "location=location) ";
     //search using Like statement
-    var tempL = "(location LIKE "
+    var tempL = "((location LIKE "
     var keys = location.split(" ").filter(function(el) {return el.length != 0}); 
     console.log("location keys: ", keys); 
     var num = keys.length; 
     for(var i=0; i < num; i++){
       list2.push(keys[i]); 
       if(i < (num-1)){
-        tempL += "'%'||?||'%' AND "; 
+        tempL += "'%'||?||'%') AND (location LIKE "; 
       }else{
-        tempL += "'%'||?||'%')"
+        tempL += "'%'||?||'%'))"
         list.push(tempL); 
       }
     }
