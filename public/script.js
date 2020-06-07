@@ -411,7 +411,17 @@ function loadResult(type){
     items.forEach(item => {
       // Add item to list
       if(item["lostOrFound"] == type) {
-        console.log(item);
+        console.log(item["title"]);
+        
+        var item = document.createElement("DIV");
+        item.classList.add('item');
+        var btn = document.createElement('button');
+        btn.classList.add('collapsible');
+        btn.innerHTML = item["title"];
+        item.appendChild(btn);
+        
+        
+        document.getElementById("results").appendChild(item); 
       }
     });
     
