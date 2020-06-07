@@ -376,7 +376,8 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
     
     //this contructs for description
     var temp = "(description LIKE "; 
-    searchKeyWords = searchText.split();
+    searchKeyWords = searchText.split(" ").filter(function(el) {return el.length != 0});
+    console.log("Search Key words: ", searchKeyWords); 
     numOfWords = searchKeyWords.length; 
     for(var i=0; i < numOfWords; i++){
       list2.push(searchKeyWords[i]); 
@@ -435,11 +436,12 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
     list2.push(category); 
   }
   
+  //allows partial search
   if(location != ""){
     //cmd += "location=location) ";
     //search using Like statement
     var tempL = "(location LIKE "
-    var keys = location.split(); 
+    var keys = location.split(" ").filter(function(el) {return el.length != 0}); 
     var num = keys.length; 
     for(var i=0; i < num; i++){
       list2.push(keys[i]); 
