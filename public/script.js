@@ -233,8 +233,17 @@ function sendToServer(data, origin){
     let response = xmlhttp.responseText; 
     console.log("Response from server: ", response); 
     
-    if(confirm("Item Saved. Redirect to homepage?")){
-      window.location.href="screen02.html"; 
+    // if(confirm("Item Saved. Redirect to homepage?")){
+    //   window.location.href="screen02.html"; 
+    // }
+    
+    if(response) {
+      if(origin = "finder") {
+        window.location.href = "/screen09.html?action=showAll";
+      }
+      else {
+        window.location.href = "/screen10.html?action=showAll";
+      }
     }
     
     // immediately switch to display view
@@ -297,7 +306,7 @@ function finderSearch(){
   sessionStorage.setItem('searchText', searchText); 
   
   console.log("Search Input: ", category, location, startDate, endDate, startTime, endTime, searchText); 
-  window.location.href = "screen09.html";
+  window.location.href = "/screen09.html?action=showSearch";
   
 }
 
@@ -335,7 +344,7 @@ function seekerSearch(){
 }
 
 //loads search result in result page
-function loadResult(){
+function loadResult(type){
   
   //retrieve search input from session storage
   var searchText = sessionStorage.getItem('searchText'); 
@@ -374,7 +383,7 @@ function loadResult(){
     let items = JSON.parse(res);
     items.forEach(item => {
       // Add item to list
-      
+      if(item[""] == type)
     });
     
     // console.log(res); 
