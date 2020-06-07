@@ -1,108 +1,116 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>UC Davis Lost and Found</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script> 
-  <style>
-    body {
-      background-color: white;
-    }
-    
-    main {
-      width: 70%;
-    }
-    
-    .item, .collapsible {
-      background-color: #b3c1d1 !important;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  
-  <!--
+  <head>
+    <title>UC Davis Lost and Found</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <style>
+      body {
+        background-color: white;
+      }
+
+      main {
+        width: 70%;
+      }
+
+      .item,
+      .collapsible {
+        background-color: #b3c1d1 !important;
+      }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <!--
   <script 
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
     defer
   ></script>
-  -->
-</head>
-<body>
-  <header>
-    <a href="/screen02.html">
-      <img id="logo" src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FLogo.png?v=1591015746007">
-    </a>
-  </header>
-  <main>
-    <h1 class="searchResultsTitle">Showing results for</h1>
-    <div class="resultsSub">
-      <h1 id="searchQuery">Search query</h1>
-      <a href="/screen05.html">Edit Search</a>
-    </div>
-    
-    <div onload="showDataStored()"></div>
-<!--     <button onclick="loadResult()">Click to show Search result</button>
-    <button onclick="showAllDataStored()">Click to show all data stored</button> -->
-    <ul id="results">
-      <div class="item">
-        <button class="collapsible">Test title</button>
-        <div class="content">
-          <img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FShields.jpg?v=1591018164366">
-          <div>
-            
-          </div>  
-          <div class="infoItem">
-              <h2>Category</h2>
-              <p>Test Category</p>
-            </div>
-            <div class="infoItem">
-              <h2>Location</h2>
-              <p>Test Location</p>
-            </div>
-            <div class="infoItem"> 
-              <h2>Date</h2>
-              <p>Test Date</p>
-            </div>       
-        </div>
+  --></head>
+  <body>
+    <header>
+      <a href="/screen02.html">
+        <img
+          id="logo"
+          src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FLogo.png?v=1591015746007"
+        />
+      </a>
+    </header>
+    <main>
+      <h1 class="searchResultsTitle">Showing results for</h1>
+      <div class="resultsSub">
+        <h1 id="searchQuery">Search query</h1>
+        <a href="/screen05.html">Edit Search</a>
       </div>
-    </ul>
-  </main>
-  <script>
-    // Display results
-    let url = window.location.href;
-    let action = url.slice(url.indexOf("action=")+7);
-    console.log(action);
-    
-    if(action == 'showSearch') {
-      loadResult("Lost");
-      console.log('showing search');
-    }
-    else if(action == 'showAll') {
-      console.log('showing all');
-      searchQuery.innerHTML = 'Showing all results';
-      showAllDataStored('')
-    }
-    else {
-      console.log('Invalid action!')
-    }
-  </script>
-  
-  <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
 
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } 
-      });
-    }
-  </script>
-</body>
+      <div onload="showDataStored()"></div>
+      <!--     <button onclick="loadResult()">Click to show Search result</button>
+    <button onclick="showAllDataStored()">Click to show all data stored</button> -->
+      <ul id="results">
+        <div class="item">
+          <button class="collapsible">Test title</button>
+          <div class="content">
+            <img
+              src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FShields.jpg?v=1591018164366"
+            />
+            <div class="info">
+              <div class="infoItem">
+                <h2>Category</h2>
+                <p>Test Category</p>
+              </div>
+              <div class="infoItem">
+                <h2>Location</h2>
+                <p>Test Location</p>
+              </div>
+              <div class="infoItem">
+                <h2>Date</h2>
+                <p>Test Date</p>
+              </div>
+              <p class="description">
+                Ramdom itme found in ramdom place, just for testing
+              </p>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </main>
+    <script>
+      // Display results
+      let url = window.location.href;
+      let action = url.slice(url.indexOf("action=") + 7);
+      console.log(action);
+
+      if (action == "showSearch") {
+        loadResult("Lost");
+        console.log("showing search");
+      } else if (action == "showAll") {
+        console.log("showing all");
+        searchQuery.innerHTML = "Showing all results";
+        showAllDataStored("");
+      } else {
+        console.log("Invalid action!");
+      }
+    </script>
+
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+  </body>
 </html>

@@ -202,12 +202,21 @@ main {
   transition: max-height 0.2s ease-out;
 }
 
-.info {
+.info,.content  {
   display: flex;
 }
 
-.info img {
+.info {
+  flex-direction: column;
+}
+
+.infoItem .content img {
+  margin: 15px;
+}
+
+.content img {
   width: 30%;
+  min-height: 300px;
 }
 
 .infoItem {
