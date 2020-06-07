@@ -409,21 +409,39 @@ function loadResult(type){
     //  Call show results function
     let items = JSON.parse(res);
     items.forEach(item => {
+      console.log(item);
       // Add item to list
       if(item["lostOrFound"] == type) {
         
-        var div = document.createElement("DIV");
-        div.classList.add('item');
+        var div_item = document.createElement("DIV");
+        div_item.classList.add('item');
         var btn = document.createElement('button');
         btn.classList.add('collapsible');
         btn.innerHTML = item["title"];
-        div.appendChild(btn);
-        var d = document.createElement("DIV");
-        div.classList.add('item');
+        div_item.appendChild(btn);
+        var div_content = document.createElement("DIV");
+        div_content.classList.add('content');
+        div_item.appendChild(div_content);
+        var img = document.createElement("img");
+        img.src = item["photoURL"];
+        div_content.appendChild(img);
+        var div_info = document.createElement("DIV");
+        div_info.classList.add('info');
+        div_content.appendChild(div_info);
+        
+        var div_infoItem = document.createElement("DIV");
+        div_infoItem.classList.add('infoItem');
+        var h2 = document.createElement("h2");
+        h2.innerHTML = "Category";
+        div_infoItem.appendChild(h2);
+        var p = document.createElement("p");
+        p.innerHTML = item["category"];
+        div_infoItem.appendChild(p);
+        div_info.appendChild(div_infoItem);
         
         
         
-        document.getElementById("results").appendChild(div); 
+        document.getElementById("results").appendChild(div_item); 
       }
     });
     
