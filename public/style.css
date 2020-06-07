@@ -208,6 +208,7 @@ main {
 
 .info {
   flex-direction: column;
+  width: 70%;
 }
 
 .infoItem, .content img {

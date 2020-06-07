@@ -439,12 +439,35 @@ function loadResult(type){
         div_infoItem.appendChild(p);
         div_info.appendChild(div_infoItem);
         
+        var div_infoItem = document.createElement("DIV");
+        div_infoItem.classList.add('infoItem');
+        var h2 = document.createElement("h2");
+        h2.innerHTML = "Location";
+        div_infoItem.appendChild(h2);
+        var p = document.createElement("p");
+        p.innerHTML = item["location"];
+        div_infoItem.appendChild(p);
+        div_info.appendChild(div_infoItem);
         
+        var div_infoItem = document.createElement("DIV");
+        div_infoItem.classList.add('infoItem');
+        var h2 = document.createElement("h2");
+        h2.innerHTML = "Date";
+        div_infoItem.appendChild(h2);
+        var p = document.createElement("p");
+        p.innerHTML = item["date"];
+        div_infoItem.appendChild(p);
+        div_info.appendChild(div_infoItem);
+        
+        var p_infoItem = document.createElement("p");
+        p_infoItem.classList.add('infoItem');
+        p_infoItem.innerHTML = item['description'];
+        div_info.appendChild(p_infoItem);
         
         document.getElementById("results").appendChild(div_item); 
       }
     });
-    
+    setCollapsible();
     // console.log(res); 
   }
   
@@ -481,4 +504,20 @@ function searchBtnClick2() {
   sessionStorage.setItem('searchText', document.getElementById('searchTxt').value);
   console.log(document.getElementById('searchTxt').value);
   window.location = "/screen08.html";
+}
+
+function setCollapsible() {
+  var coll = document.getElementsByClassName("collapsible");
+
+  for (var i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  }
 }

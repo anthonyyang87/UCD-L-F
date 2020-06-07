@@ -51,50 +51,8 @@
       <!--     <button onclick="loadResult()">Click to show Search result</button>
     <button onclick="showAllDataStored()">Click to show all data stored</button> -->
       <ul id="results">
-        <div class="item">
-          <button class="collapsible">Test title</button>
-          <div class="content">
-            <img
-              src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FShields.jpg?v=1591018164366"
-            />
-            <div class="info">
-              <div class="infoItem">
-                <h2>Category</h2>
-                <p>Test Category</p>
-              </div>
-              <div class="infoItem">
-                <h2>Location</h2>
-                <p>Test Location</p>
-              </div>
-              <div class="infoItem">
-                <h2>Date</h2>
-                <p>Test Date</p>
-              </div>
-              <p class="description infoItem">
-                Ramdom itme found in ramdom place, just for testing
-              </p>
-            </div>
-          </div>
-        </div>
       </ul>
     </main>
-    <script>
-      function setCollapsible() {
-        var coll = document.getElementsByClassName("collapsible");\\
-
-        for (var i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-              content.style.maxHeight = null;
-            } else {
-              content.style.maxHeight = content.scrollHeight + "px";
-            }
-          });
-        }
-      }
-    </script>
     <script>
       // Display results
       let url = window.location.href;
@@ -103,7 +61,6 @@
 
       if (action == "showSearch") {
         loadResult("Lost");
-        setCollapsible();
         console.log("showing search");
       } else if (action == "showAll") {
         console.log("showing all");
