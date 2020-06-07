@@ -358,6 +358,27 @@ function loadResult(type){
   var startTime = sessionStorage.getItem('startTime'); 
   var endTime = sessionStorage.getItem('endTime'); 
   
+  // Display search query
+  let searchQuery = document.querySelector('#searchQuery');
+  let str = '';
+  if(startDate != '' && endDate != '') {
+    str = str + startDate + ' - ' + endDate;
+  }
+  else {
+    str = str + startDate + endDate;
+  }
+  
+  if(searchText != '') {
+    str = str + ', ' + searchText;
+  }
+  else {
+    str = str + ', ' + category;
+  }
+  
+  if(location != '') {
+    str = str + ', ' + location;
+  }
+  
   //construct json object
   var jsonObj = {
     searchText: searchText, 
