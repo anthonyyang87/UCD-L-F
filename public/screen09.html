@@ -14,6 +14,10 @@
     main {
       width: 70%;
     }
+    
+    .item {
+      background-color: #b3c1d1 !important;
+    }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   
@@ -38,10 +42,16 @@
     </div>
     
     <div onload="showDataStored()"></div>
-    <button onclick="loadResult()">Click to show Search result</button>
-    <button onclick="showAllDataStored()">Click to show all data stored</button>
+<!--     <button onclick="loadResult()">Click to show Search result</button>
+    <button onclick="showAllDataStored()">Click to show all data stored</button> -->
     <ul id="results">
-      
+      <div class="item">
+        <h1 class="title">Test title</h1>
+        <button class="collapsible">More</button>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
     </ul>
   </main>
   <script>
@@ -50,10 +60,8 @@
     let action = url.slice(url.indexOf("action=")+7);
     console.log(action);
     
-    
-    
     if(action == 'showSearch') {
-      loadResult('Lost');
+      loadResult("Lost");
       console.log('showing search');
     }
     else if(action == 'showAll') {
@@ -63,6 +71,23 @@
     }
     else {
       console.log('Invalid action!')
+    }
+  </script>
+  
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
     }
   </script>
 </body>

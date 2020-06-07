@@ -409,10 +409,10 @@ function loadResult(type){
     //  Call show results function
     let items = JSON.parse(res);
     items.forEach(item => {
-      
-      console.log(item);
       // Add item to list
-      // if(item[""] == type)
+      if(item["lostOrFound"] == type) {
+        console.log(item);
+      }
     });
     
     // console.log(res); 
