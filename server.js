@@ -382,7 +382,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
     for(var i=0; i < numOfWords; i++){
       list2.push(searchKeyWords[i]); 
       if(i < (numOfWords-1)){
-        temp += "'%'||?||'%') AND (description LIKE"; 
+        temp += "'%'||?||'%') AND (description LIKE "; 
       }else{
         temp += "'%'||?||'%'))"
         //list.push(temp); 
@@ -390,13 +390,13 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
     }
     
     //this constructs for title
-    var temp2 = "(title LIKE "; 
+    var temp2 = "((title LIKE "; 
     for(var i=0; i < numOfWords; i++){
       list2.push(searchKeyWords[i]); 
       if(i < (numOfWords-1)){
-        temp2 += "'%'||?||'%' AND "; 
+        temp2 += "'%'||?||'%') AND (title LIKE "; 
       }else{
-        temp2 += "'%'||?||'%')"
+        temp2 += "'%'||?||'%'))"
         //list.push(temp); 
       }
     }
