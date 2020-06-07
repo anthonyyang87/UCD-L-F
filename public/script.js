@@ -362,22 +362,25 @@ function loadResult(type){
   let searchQuery = document.querySelector('#searchQuery');
   let str = '';
   if(startDate != '' && endDate != '') {
-    str = str + startDate + ' - ' + endDate;
+    str = str + startDate + ' to ' + endDate + ',';
   }
   else {
-    str = str + startDate + endDate;
+    str = str + startDate + endDate + ',';
   }
-  
   if(searchText != '') {
-    str = str + ', ' + searchText;
+    str = str + ' ' + searchText + ',';
   }
-  else {
-    str = str + ', ' + category;
+  else if (category != '') {
+    str = str + ' ' + category + ',';
+  }
+  if(location != '') {
+    str = str + ' ' + location;
   }
   
-  if(location != '') {
-    str = str + ', ' + location;
-  }
+  if(str)
+  
+  console.log(str.length);
+  searchQuery.innerHTML = str;
   
   //construct json object
   var jsonObj = {
