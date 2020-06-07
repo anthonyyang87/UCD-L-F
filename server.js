@@ -469,8 +469,6 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   //for testing
   console.log("Search input: ", search); 
   //construct command
-  //cmd = "SELECT * FROM LostAndFoundTable WHERE ((date>=? OR ''=='') AND (date<=? OR ''=='') AND (time>=? OR ''=='') AND (time<=? OR ''=='') AND (category=? OR ''=='') AND (location=? OR ''=='')) ";
-  //cmd = "SELECT * FROM LostAndFoundTable WHERE category='Electronics'"
   lostDB.all(cmd, list2, function(err, data){
     if(err){
       console.log("Database read error"); 
@@ -481,6 +479,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   }); 
 }); 
 
+//inserting new Item in database
 // Handle a POST request containing JSON
 app.use(bodyParser.json());
 // gets JSON data into req.body
