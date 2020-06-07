@@ -28,12 +28,6 @@
   }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
-      defer
-    ></script>
-  <script src="/googleMap.js"></script>
 </head>
 <body>
   <header>
@@ -54,7 +48,9 @@
         <div id="mapContainer">
           <div id="map"></div>
         </div>
-        <button type="button" onclick="seekerSubmit()">Submit</button>
+       <div id="btnRow">
+          <button type="button" class="btn" onclick="seekerSubmit()">Submit</button>       
+        </div>     
         <h1 class="sectionTitle">Or search for existing requests</h1>
         <section id="search">
           <div class="search-container">
@@ -91,5 +87,15 @@
     }
     
   </script>
+  
+  <!-- Get Google Maps, and the places library, using my API key
+    This script runs and then calls our initMaps function.  defer means it does 
+    not run until the page is loaded -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=places&v=weekly"
+      defer
+    ></script>
+  <!-- the map is added to the div "map" by the initMaps function, which is in this script -->
+  <script src="googleMap.js"></script>
 </body>
 </html>
