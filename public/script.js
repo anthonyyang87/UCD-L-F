@@ -339,7 +339,7 @@ function seekerSearch(){
   sessionStorage.setItem('endTime', endTime); 
   sessionStorage.setItem('searchText', searchText); 
   
-  window.location.href = "screen10.html";
+  window.location.href = "screen10.html?action=showSearch";
   
 }
 

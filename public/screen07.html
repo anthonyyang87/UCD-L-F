@@ -13,6 +13,10 @@
       body {
         background-color: #b3c1d1;
       }
+      
+      .btn {
+        background-color: #142a50;
+      }
 
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -52,10 +56,18 @@
           </div>
 
           <label for="location">Location</label><br />
-          <input type="text" id="location" name="location" /><br /><br />
+          <br />
+          <input
+            list="locations"
+            id="location"
+            name="location"
+            onfocus="this.value=''"
+          /><br /><br />
+          <datalist id="locations"> </datalist>
           <div id="mapContainer">
             <div id="map"></div>
           </div>
+
           <div id="btnRow">
             <button type="button" class="btn" onclick="seekerSubmit()">
               Submit

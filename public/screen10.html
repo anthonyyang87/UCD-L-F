@@ -7,16 +7,19 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script> 
   <style>
-    body {
-      background-color: #feebb1;
-    }
-    
-    /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-    #map {
-      height: 100%;
-    }
-  </style>
+      body {
+        background-color: white;
+      }
+
+      main {
+        width: 70%;
+      }
+
+      .item,
+      .collapsible {
+        background-color: #b3c1d1 !important;
+      }
+    </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   
   <!--
@@ -33,16 +36,34 @@
     </a>
   </header>
   <main>
-    <h1 id="formTitle">Search Results</h1>
-    <div onload="showDataStored()"></div>
-    <button onclick="loadResult()">Click to show Search result</button>
-    <button onclick="showAllDataStored()">Click to show all data stored</button>
-    <ul id="results">
-      
-    </ul>
-  </main>
-  <script>
-    
-  </script>
+      <h1 class="searchResultsTitle">Showing results for</h1>
+      <div class="resultsSub">
+        <h1 id="searchQuery">Search query</h1>
+        <a href="/screen08.html">Edit Search</a>
+      </div>
+
+      <div onload="showDataStored()"></div>
+      <!--     <button onclick="loadResult()">Click to show Search result</button>
+    <button onclick="showAllDataStored()">Click to show all data stored</button> -->
+      <ul id="results">
+      </ul>
+    </main>
+    <script>
+      // Display results
+      let url = window.location.href;
+      let action = url.slice(url.indexOf("action=") + 7);
+      console.log(action);
+
+      if (action == "showSearch") {
+        loadResult("Found");
+        console.log("showing search");
+      } else if (action == "showAll") {
+        console.log("showing all");
+        searchQuery.innerHTML = "Showing all results";
+        showAllDataStored("");
+      } else {
+        console.log("Invalid action!");
+      }
+    </script>
 </body>
 </html>
