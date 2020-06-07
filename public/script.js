@@ -106,8 +106,8 @@ function finderSubmit(){
   //now send user data to server
   sendToServer(jsonObj); 
   
-  //uploading image to server
-  //uploadImage(photoData); 
+  //redirect to homw page
+  //window.location.href="screen02.html"; 
 }
 
 function seekerNext(){
@@ -218,7 +218,7 @@ function seekerSubmit(){
   sendToServer(jsonObj); 
   
   //redirect back to home page
-  
+  window.location.href="screen02.html"; 
 }
 
 function sendToServer(data){
@@ -232,7 +232,11 @@ function sendToServer(data){
   xmlhttp.onloadend = function(e) {
     let response = xmlhttp.responseText; 
     console.log("Response from server: ", response); 
-    alert("Item Saved"); 
+    
+    if(confirm("Item Saved. Redirect to homepage?")){
+      window.location.href="screen02.html"; 
+    }
+    
     // immediately switch to display view
     //window.open("display.html");
   }
