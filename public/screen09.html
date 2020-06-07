@@ -8,14 +8,14 @@
   <script src="script.js"></script> 
   <style>
     body {
-      background-color: #b3c1d1;
+      background-color: white;
     }
     
     main {
       width: 70%;
     }
     
-    .item {
+    .item, .collapsible {
       background-color: #b3c1d1 !important;
     }
   </style>
@@ -46,10 +46,23 @@
     <button onclick="showAllDataStored()">Click to show all data stored</button> -->
     <ul id="results">
       <div class="item">
-        <h1 class="title">Test title</h1>
-        <button class="collapsible">More</button>
+        <button class="collapsible">Test title</button>
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <img src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2FShields.jpg?v=1591018164366">
+          <ul>
+            <div>
+              <h2>Category</h2>
+              <p>Test Category</p>
+            </div>
+            <div>
+              <h2>Location</h2>
+              <p>Test Location</p>
+            </div>
+            <div>
+              <h2>Date</h2>
+              <p>Test Date</p>
+            </div>
+          </ul>
         </div>
       </div>
     </ul>

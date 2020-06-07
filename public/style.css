@@ -171,8 +171,7 @@ main {
 }
 
 .collapsible {
-  background-color: #777;
-  color: white;
+  color: #142a50;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -180,22 +179,20 @@ main {
   text-align: left;
   outline: none;
   font-size: 15px;
-}
-
-.active, .collapsible:hover {
-  background-color: #555;
+  font-family: "Montserrat", bold !important;
+  font-weight: bolder;
 }
 
 .collapsible:after {
-  content: '\002B';
-  color: white;
+  content: 'More';
+  color: #142a50;
   font-weight: bold;
   float: right;
   margin-left: 5px;
 }
 
 .active:after {
-  content: "\2212";
+  content: "Less";
 }
 
 .content {
@@ -203,5 +200,10 @@ main {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
+  
+  display: flex;
+}
+
+.content img {
+  width: 30%;
 }
