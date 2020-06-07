@@ -442,6 +442,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
     //search using Like statement
     var tempL = "(location LIKE "
     var keys = location.split(" ").filter(function(el) {return el.length != 0}); 
+    console.log("location keys: ", keys); 
     var num = keys.length; 
     for(var i=0; i < num; i++){
       list2.push(keys[i]); 
@@ -464,6 +465,7 @@ app.get('/cool-ant-eth.glitch.me/screen10.html', function(req, res){
   }
   
   console.log("Command entered: ", cmd); 
+  console.log("Arguments: ", list2); 
   //for testing
   console.log("Search input: ", search); 
   //construct command
