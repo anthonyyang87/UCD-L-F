@@ -53,13 +53,13 @@
     
     
     if(action == 'showSearch') {
-      // loadResult()
+      loadResult('Lost');
       console.log('showing search');
-      
     }
     else if(action == 'showAll') {
       console.log('showing all');
       searchQuery.innerHTML = 'Showing all results';
+      showAllDataStored('')
     }
     else {
       console.log('Invalid action!')

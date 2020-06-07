@@ -104,7 +104,7 @@ function finderSubmit(){
   console.log("Json object: ", jsonObj); 
   
   //now send user data to server
-  sendToServer(jsonObj, "finder"); 
+  sendToServer(jsonObj); 
   
   //redirect to homw page
   //window.location.href="screen02.html"; 
@@ -215,13 +215,13 @@ function seekerSubmit(){
   console.log("Json object: ", jsonObj); 
   
   //now send user data to server
-  sendToServer(jsonObj, "seeker"); 
+  sendToServer(jsonObj); 
   
   //redirect back to home page
   window.location.href="screen02.html"; 
 }
 
-function sendToServer(data, origin){
+function sendToServer(data){
   
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
@@ -233,18 +233,18 @@ function sendToServer(data, origin){
     let response = xmlhttp.responseText; 
     console.log("Response from server: ", response); 
     
-    // if(confirm("Item Saved. Redirect to homepage?")){
-    //   window.location.href="screen02.html"; 
-    // }
-    
-    if(response) {
-      if(origin = "finder") {
-        window.location.href = "/screen09.html?action=showAll";
-      }
-      else {
-        window.location.href = "/screen10.html?action=showAll";
-      }
+    if(confirm("Item Saved. Redirect to homepage")){
+      window.location.href="screen02.html"; 
     }
+    
+    // if(response) {
+    //   if(origin = "finder") {
+    //     window.location.href = "/screen09.html?action=showAll";
+    //   }
+    //   else {
+    //     window.location.href = "/screen10.html?action=showAll";
+    //   }
+    // }
     
     // immediately switch to display view
     //window.open("display.html");
@@ -366,6 +366,8 @@ function loadResult(type){
   }
   else {
     str = str + startDate + endDate + ',';
+    if(str.endsWith(","))
+      str = str.slice(0,-1);
   }
   if(searchText != '') {
     str = str + ' ' + searchText + ',';
@@ -377,7 +379,8 @@ function loadResult(type){
     str = str + ' ' + location;
   }
   
-  if(str)
+  if(str.endsWith(","))
+    str = str.slice(0,-1);
   
   console.log(str.length);
   searchQuery.innerHTML = str;
@@ -420,7 +423,7 @@ function loadResult(type){
 }
 
 //this function shows all the data stored in the DB
-function showAllDataStored(){
+function showAllDataStored(type){
   let xhr = new XMLHttpRequest; 
   xhr.open("GET", "getDataFromDB"); 
   
@@ -429,6 +432,7 @@ function showAllDataStored(){
   xhr.onloadend = function(e){
     var res = xhr.responseText; 
     console.log(res); 
+    
   }
   
   //sending request to server
