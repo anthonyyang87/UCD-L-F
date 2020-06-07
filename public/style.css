@@ -163,6 +163,6 @@ main {
 .resultsSub a {
   color: white;
   background-color: #142a50;
-  width: 150px;
-  
+  padding: 10px;
+  border-radius: 10px;
 }

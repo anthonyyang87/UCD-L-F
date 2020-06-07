@@ -330,7 +330,7 @@ function seekerSearch(){
   sessionStorage.setItem('endTime', endTime); 
   sessionStorage.setItem('searchText', searchText); 
   
-  window.location.href = "screen09.html";
+  window.location.href = "screen10.html";
   
 }
 
@@ -370,13 +370,14 @@ function loadResult(){
   xhr.onloadend = function(e){
     var res = xhr.responseText; 
     
-    /*
     //  Call show results function
-    res.foreach(item => {
-      console.log(item);
+    let items = JSON.parse(res);
+    items.forEach(item => {
+      // Add item to list
+      
     });
-    */
-    console.log(res); 
+    
+    // console.log(res); 
   }
   
   //sending request to server
