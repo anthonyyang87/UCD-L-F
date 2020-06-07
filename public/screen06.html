@@ -17,7 +17,14 @@
     }
     
     #nextBtn {
-      background-color: #daab27;
+      background-color: #142a50;
+    }
+    
+    #photoLabel {
+      background-color: #e5e5e5;
+      width: auto !important;
+      padding: 10px;
+      margin: 0 auto;
     }
   </style>
 	<script src="script.js"></script>
@@ -29,7 +36,7 @@
     </a>
   </header>
   <main>
-    <h1 id="formTitle">Input the lost item</h1>
+    <h1 class="sectionTitle">Input the lost item</h1>
     <section id="form">
       <form>
         <label for="title">Title</label><br>
@@ -48,8 +55,10 @@
         
         <label for="description">Description</label><br>
         <textarea id="description" name="description"></textarea><br>
-        <label for="photoURL">Attach A Photo(Optional)</label><br>
-        <input id="imgUpload" type="file" accept="image/*" name="photo" title=" "/>        
+        
+        <label>Attach A Photo(Optional)</label><br>
+        <input id="photo" type="file" accept="image/*" name="photo" style="display:none;"/>   
+        <label id="photoLabel" for="photo">Chose File</label>     
         <br>
         <div id="btnRow">
           <button type="button" class="btn" id="nextBtn" onclick="seekerNext()">Next</button>
@@ -57,7 +66,7 @@
     </form>
     </section>
 
-    <h1 class="sectionTitle">Or search for existing requests</h1>
+    <h1 class="sectionTitle">Or search for existing items</h1>
     <section id="search">
       <div class="search-container">
         <input id="searchTxt" type="text" placeholder="Search.." name="search">
