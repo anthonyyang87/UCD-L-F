@@ -16,15 +16,24 @@
     #map {
       height: 100%;
     }
+    
+    #mapContainer {
+      height: 500px;
+      background-color: #e5e5e5;
+    }
+    
+    #map {
+        height: 100%;
+        width: 100%;
+  }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  
-  <!--
-  <script 
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
-    defer
-  ></script>
-  -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHktMb8c0V2p9ynoRk4jJImUwkwBxVjjs&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+  <script src="/googleMap.js"></script>
 </head>
 <body>
   <header>
@@ -41,10 +50,18 @@
         <label for="time">Time</label><br>
         <input type="time" id="time" name="time"><br>
         <label for="location">Location</label><br>
-        <input type="text" id="location" name="location"><br>
-        <div id="map"></div>
+        <input type="text" id="location" name="location"><br><br>
+        <div id="mapContainer">
+          <div id="map"></div>
+        </div>
         <button type="button" onclick="seekerSubmit()">Submit</button>
-        <button type="button" onclick="redirect()">Search</button>
+        <h1 class="sectionTitle">Or search for existing requests</h1>
+    <section id="search">
+      <div class="search-container">
+        <input id="searchTxt" type="text" placeholder="Search.." name="search">
+        <img id="searchBtn" onclick="searchBtnClick()" src="https://cdn.glitch.com/8b0c4380-0d00-4dd0-8b77-033196b79fe7%2Fsearch-solid.svg?v=1591018108417">
+      </div>
+    </section>
                                        
       </form>
     </section>

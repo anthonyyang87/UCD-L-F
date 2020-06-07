@@ -398,3 +398,10 @@ function searchBtnClick() {
   console.log(document.getElementById('searchTxt').value);
   window.location = "/screen05.html";
 }
+
+//for seeker
+function searchBtnClick2() {
+  sessionStorage.setItem('searchText', document.getElementById('searchTxt').value);
+  console.log(document.getElementById('searchTxt').value);
+  window.location = "/screen08.html";
+}
