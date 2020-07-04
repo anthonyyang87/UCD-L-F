@@ -1,3 +1,3 @@
-# This is a UC Davis Lost and Found project from group 404 NOT FOUND
+# This is a UC Davis Lost and Found class project
 
-## Memebers: Ethan Chiang and Anthony Yang
+## Created By: Ethan Chiang and Anthony Yang
